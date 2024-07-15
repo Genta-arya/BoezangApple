@@ -19,8 +19,8 @@ export const HoverEffect = ({ items, className }) => {
       )}
     >
       {items.slice(0, 8).map((item, idx) => {
-        const priceInIDR = item.basePrice * USD_TO_IDR; 
-        const rating = 5; 
+        const priceInIDR = item.basePrice * USD_TO_IDR;
+        const rating = 5;
 
         const content = (
           <div
@@ -47,13 +47,15 @@ export const HoverEffect = ({ items, className }) => {
               )}
             </AnimatePresence>
             <Card>
-              <Image
-                src={imageDummy}
-                alt={item.name}
-                className="rounded-t-2xl"
-                width={400}
-                height={300}
-              />
+              <div className="flex justify-center">
+                <Image
+                  src={imageDummy}
+                  alt={item.name}
+                  className="rounded-t-2xl"
+                  width={300}
+                  height={300}
+                />
+              </div>
 
               <CardTitle>{item.name}</CardTitle>
               <div className="flex items-center mt-2">

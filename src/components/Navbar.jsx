@@ -37,7 +37,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
 
   return (
     <div className="flex justify-between items-center w-full bg-gray-100  shadow-none md:px-12 mx-auto border-b dark:border-b dark:border-gray-500 dark:text-white dark:bg-black">
-      <Image src={icon} className="w-14 rounded-full" />
+      <Image src={icon} className="w-14 rounded-full bg-white p-[2px]" />
       <div className={cn("z-50 rounded-md flex gap-24 flex-row  ")}>
         <Menu setActive={setActive}>
           <MenuItem setActive={setActive} active={active} item="Layanan">
@@ -72,7 +72,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
               />
             </div>
           </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Tentang Kami">
+          <MenuItem setActive={setActive} active={active} item="Kontak">
             <div className="text-sm grid grid-cols-2 gap-10 p-4 pl-8">
               <div className="flex items-center space-x-2">
                 <FaWhatsapp className="text-xl" />

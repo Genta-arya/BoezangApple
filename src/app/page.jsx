@@ -1,5 +1,8 @@
 import Container from "@/components/Container";
+import FloatingCs from "@/components/FloatingCs";
+import Footer from "@/components/Footer";
 import { Header } from "@/components/Header";
+import Lokasi from "@/components/Lokasi";
 
 import Navbar from "@/components/MobileNavbar";
 
@@ -22,9 +25,12 @@ const page = () => {
       <Header />
 
     <Container />
-      <div className="lg:px-24">
+      <div className="">
         <Product />
       </div>
+      <Lokasi />
+      <Footer />
+      <FloatingCs />
     </main>
   );
 };

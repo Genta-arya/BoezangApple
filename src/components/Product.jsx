@@ -26,38 +26,37 @@ const Product = () => {
   }, [setProducts]);
 
   return (
-    <div className="py-8 dark:bg-black dark:text-white ">
-      <div className="px-2 flex justify-center">
-        <div className=" py-4">
-          <p className="text-center  font-bold text-xl lg:text-4xl md:text-3xl">
-            Garansi Harga Iphone Termurah{" "}
-          </p>
-          <p className="text-center  font-bold text-xl lg:text-4xl  lg:mt-4 md:text-3xl">
-            Di Ketapang
-          </p>
-          <div className="flex justify-center">
-            <Image src={icon} className="md:w-32 w-20 lg:w-52 mt-8 rounded-full"></Image>
+    <div className="py-8 dark:bg-black dark:text-white bg-slate-100">
+      <div className="lg:px-24">
+        <div className="px-2 flex justify-center">
+          <div className=" py-4">
+            <p className="text-center  font-bold text-xl lg:text-4xl md:text-3xl">
+              Garansi Harga Iphone Termurah{" "}
+            </p>
+            <p className="text-center  font-bold text-xl lg:text-4xl  lg:mt-4 md:text-3xl">
+              Di Ketapang
+            </p>
           </div>
         </div>
-      </div>
 
-      <div className="px-4 md:pt-32 md:-mb-8 flex justify-end pt-12">
-        <Link href={""}>
-          <p className="md:text-2xl font-bold hover:underline transition-all duration-300 ease-in mb-2">
-            Lihat Semua
-          </p>
-        </Link>
-      </div>
+        <div className="px-4 md:pt-16 md:-mb-8 flex justify-end pt-12">
+          <Link href={""}>
+            <p className="md:text-xl font-bold hover:underline transition-all duration-300 ease-in mb-2">
+              Lihat Semua
+            </p>
+          </Link>
+        </div>
 
-      <div className="hidden lg:block md:block">
-        <HoverEffect items={products} />
-      </div>
-      <div className="lg:hidden md:hidden block">
-        <AuroraBackground>
-          <div className=" mt-12">
-            <CardProductMobile products={products} />
-          </div>
-        </AuroraBackground>
+        <div className="hidden lg:block md:block">
+          <HoverEffect items={products} />
+        </div>
+        <div className="lg:hidden md:hidden block">
+          <AuroraBackground>
+            <div className=" mt-12">
+              <CardProductMobile products={products} />
+            </div>
+          </AuroraBackground>
+        </div>
       </div>
     </div>
   );
