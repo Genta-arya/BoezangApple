@@ -8,11 +8,11 @@ const Footer = () => {
     <footer className="bg-slate-100 dark:bg-black dark:text-white dark:border-gray-500  border-t py-8 px-4 md:px-8">
       <div className="lg:px-24">
         <div className="container mx-auto">
-          <div className="container mx-auto flex lg:flex-row md:flex-col-reverse  md:gap-4 lg:gap-24 justify-between">
+          <div className="container mx-auto flex lg:flex-row md:flex-col-reverse flex-col-reverse gap-4  md:gap-4 lg:gap-24 justify-between">
             <div className="relative w-full">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.730950246081!2d109.96156977717112!3d-1.853445136513588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e05197a82605831%3A0xe7aa3561ca4e65ec!2sBoezang%20Apple!5e0!3m2!1sen!2sid!4v1721026662245!5m2!1sen!2sid"
-                width="750"
+                width="100%"
                 height="450"
                 style={{ border: 0 }}
                 allowFullScreen=""
