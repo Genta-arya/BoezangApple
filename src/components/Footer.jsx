@@ -50,7 +50,7 @@ const Footer = () => {
       </div>
       <div className="text-center text-gray-600 dark:text-gray-300 md:text-base text-xs pt-12">
         <p>
-          &copy; {new Date().getFullYear()} BOEZANG APPLE. All rights reserved.
+          {new Date().getFullYear()} BOEZANG APPLE. All rights reserved.
         </p>
       </div>
     </footer>
