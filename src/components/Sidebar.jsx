@@ -55,28 +55,22 @@ const Sidebar = ({ isOpen, onClose }) => {
         </div>
         <div className="flex flex-col items-start mt-16 ml-5 space-y-4 text-sm">
           <a
-            href="/services"
+            href="#"
             className="flex items-center space-x-2 text-black dark:text-white"
           >
             <FaTools className="text-2xl" color="gray" />
             <span>Layanan</span>
           </a>
           <a
-            href="/products"
+            href="/katalog?kategori=aksesoris"
             className="flex items-center space-x-2 text-black dark:text-white"
           >
             <FaShoppingCart className="text-2xl" color="gray" />
             <span>Produk</span>
           </a>
+
           <a
-            href="/about-us"
-            className="flex items-center space-x-2 text-black dark:text-white"
-          >
-            <FaInfoCircle className="text-2xl" color="gray" />
-            <span>Tentang Kami</span>
-          </a>
-          <a
-            href="/location"
+            href="https://maps.google.com/maps?ll=-1.85345,109.964145&z=16&t=m&hl=en&gl=ID&mapclient=embed&cid=16693213662924400108"
             className="flex items-center space-x-2 text-black dark:text-white"
           >
             <FaMapMarked className="text-2xl" color="gray" />
