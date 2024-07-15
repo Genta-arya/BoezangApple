@@ -51,11 +51,11 @@ const Product = () => {
           <HoverEffect items={products} />
         </div>
         <div className="lg:hidden md:hidden block">
-          <AuroraBackground>
+       
             <div className=" mt-12">
               <CardProductMobile products={products} />
             </div>
-          </AuroraBackground>
+        
         </div>
       </div>
     </div>
