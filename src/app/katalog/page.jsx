@@ -1,17 +1,19 @@
-
-
-import React from "react";
+import React, { Suspense } from "react";
 import MainKatalog from "./components/MainKatalog";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  title: "Katalog Produk - Boezang Apple"  // Ganti dengan judul yang diinginkan
+  title: "Katalog Produk - Boezang Apple", // Ganti dengan judul yang diinginkan
 };
 
 const PageKatalog = () => {
   return (
     <main>
-      <MainKatalog />{" "}
+      <Suspense fallback={<div>Loading...</div>}>
+        {" "}
+        {/* Boundary Suspense */}
+        <MainKatalog />
+      </Suspense>{" "}
       <Footer />
     </main>
   );
