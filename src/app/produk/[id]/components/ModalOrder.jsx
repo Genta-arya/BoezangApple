@@ -11,7 +11,7 @@ const ModalOrder = ({
   productColorOptions,
 }) => {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg md:max-w-xl lg:max-w-xl max-w-80 w-full">
+    <div className="bg-white p-8 rounded-lg shadow-lg md:max-w-xl lg:max-w-xl max-w-[90%] w-full">
       <div className="flex justify-center">
         <Image src={icon} className="w-32  rounded-full pb-12" />
       </div>
