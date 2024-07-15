@@ -9,7 +9,6 @@ const Lokasi = () => {
     <>
       <div className="dark:bg-black dark:text-white mt-8">
         <div className=" pb-8 lg:px-24">
-            <p>test</p>
           <div className="mb-8">
             <Image
               src={images}
