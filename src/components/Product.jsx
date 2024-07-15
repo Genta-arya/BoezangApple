@@ -5,10 +5,9 @@ import useProductStore from "@/ZustandState/useProductStore";
 import { GetProduct } from "@/Service/Api/GetProduct";
 import { HoverEffect } from "./ui/card-hover-effect";
 import CardProductMobile from "./MobileProduct";
-import icon from "@/assets/icon.png";
-import Image from "next/image";
+import { MdOutlinePushPin } from "react-icons/md";
 import Link from "next/link";
-import { AuroraBackground } from "./ui/aurora-background";
+
 const Product = () => {
   const { products, setProducts } = useProductStore();
 
@@ -28,8 +27,10 @@ const Product = () => {
   return (
     <div className="py-8 dark:bg-black dark:text-white bg-slate-100">
       <div className="lg:px-24">
-        <div className="px-2 flex justify-center">
-          <div className=" py-4">
+        <div className="px-2 flex justify-center py-4">
+            <MdOutlinePushPin  className="lg:text-4xl md:text-4xl text-3xl mr-2 font-bold"/>
+          <div className=" ">
+
             <p className="text-center  font-bold text-xl lg:text-4xl md:text-3xl">
               Garansi Harga Iphone Termurah{" "}
             </p>
@@ -41,7 +42,7 @@ const Product = () => {
 
         <div className="px-4 md:pt-16 md:-mb-8 flex justify-end pt-12">
           <Link href={""}>
-            <p className="md:text-xl font-bold hover:underline transition-all duration-300 ease-in mb-2">
+            <p className="md:text-xl text-sm font-bold hover:underline transition-all duration-300 ease-in ">
               Lihat Semua
             </p>
           </Link>
@@ -51,11 +52,9 @@ const Product = () => {
           <HoverEffect items={products} />
         </div>
         <div className="lg:hidden md:hidden block">
-       
-            <div className=" mt-2">
-              <CardProductMobile products={products} />
-            </div>
-        
+          <div className=" mt-2">
+            <CardProductMobile products={products} />
+          </div>
         </div>
       </div>
     </div>

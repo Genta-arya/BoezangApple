@@ -20,9 +20,9 @@ const partners = [
 
 const Support = () => {
   return (
-    <div className="p-4 dark:bg-black dark:text-white bg-slate-100 text-center pt-12 pb-12">
+    <div className="p-4 dark:bg-black dark:text-white bg-slate-100 text-center pt-12 pb-12 lg:px-24">
       <div className="flex justify-center mb-4 ">
-        <h1 className="text-2xl font-bold border-dashed border-b w-fit">
+        <h1 className="text-2xl font-bold border-dashed border-b w-fit lg:text-4xl">
           Mitra Resmi Kami
         </h1>
       </div>
