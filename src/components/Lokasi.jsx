@@ -7,7 +7,7 @@ import images from "@/assets/asset2.jpg";
 const Lokasi = () => {
   return (
     <>
-      <div className="dark:bg-black dark:text-white mt-8">
+      <div className="dark:bg-black dark:text-white pt-12 bg-slate-100">
         <div className=" pb-8 lg:px-24">
           <div className="mb-8">
             <Image
@@ -16,7 +16,7 @@ const Lokasi = () => {
               layout="responsive"
               width={1200}
               height={800}
-              className="rounded-lg"
+              className=""
             />
           </div>
         </div>
