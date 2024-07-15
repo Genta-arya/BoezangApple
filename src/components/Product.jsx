@@ -45,7 +45,7 @@ const Product = () => {
         </div>
         <div className="lg:hidden md:hidden block">
           <div className=" mt-2">
-            <CardProductMobile products={products} />
+            <CardProductMobile products={products} item={6} />
           </div>
         </div>
         <div className="flex justify-center hover:transition-all hover:scale-95 duration-300 ease-in">

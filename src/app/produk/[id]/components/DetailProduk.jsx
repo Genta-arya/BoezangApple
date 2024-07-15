@@ -6,9 +6,10 @@ import { useParams } from "next/navigation";
 import React from "react";
 import useSingleProductStore from "@/ZustandState/useSingleProductStore";
 import Image from "next/image";
-import dummyImage from "@/assets/dummy.png"; 
+import dummyImage from "@/assets/dummy.png";
 import ModalOrder from "./ModalOrder";
 import ShareProduct from "./ShareProduct";
+import { formatIDR } from "@/lib/utils";
 
 const exchangeRate = 15500; // Contoh kurs USD ke IDR, sesuaikan dengan kurs terkini
 
@@ -21,6 +22,7 @@ const DetailProduk = () => {
     name: "",
     phone: "",
     color: "",
+    kapasitas: "",
   });
   const { products, setProducts } = useSingleProductStore();
 
@@ -32,7 +34,13 @@ const DetailProduk = () => {
         if (data.colorOptions.length > 0) {
           setFormData((prev) => ({
             ...prev,
-            color: data.colorOptions[0], // Set default color to first option
+            color: data.colorOptions[0],
+          }));
+        }
+        if (data.storageOptions.length > 0) {
+          setFormData((prev) => ({
+            ...prev,
+            kapasitas: data.storageOptions[0],
           }));
         }
       } catch (err) {
@@ -62,14 +70,6 @@ const DetailProduk = () => {
 
   const priceInIDR = products.basePrice * exchangeRate;
 
-  const formatIDR = (value) => {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(value);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -84,7 +84,7 @@ const DetailProduk = () => {
 
     const message = ` Hallo Admin Boezang Apple, \n saya ${
       formData.name
-    } ingin membeli produk \n ${products.name}  \n warna ${
+    } ingin membeli produk \n ${products.name} \n Penyimpanan ${formData.kapasitas}  \n warna ${
       formData.color
     } \n dengan harga ${formatIDR(
       priceInIDR
@@ -218,6 +218,7 @@ const DetailProduk = () => {
             handleChange={handleChange}
             productName={products.name}
             productPrice={formatIDR(priceInIDR)}
+            productKapasitas={products.storageOptions}
             productColorOptions={products.colorOptions}
           />
         </div>

@@ -7,24 +7,24 @@ import useSingleProductStore from "@/ZustandState/useSingleProductStore";
 
 const NavbarDetail = () => {
   const router = useRouter();
- 
 
-  // Fungsi untuk kembali ke halaman sebelumnya
   const handleBack = () => {
-    router.back();
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
   };
 
- 
   return (
     <header className="bg-black text-white p-6 flex items-center justify-between">
-      <button onClick={handleBack} className="flex items-center text-white gap-4">
+      <button
+        onClick={handleBack}
+        className="flex items-center text-white gap-4"
+      >
         <FaArrowLeft className="text-xl" />
         <p className="font-bold">Detail Produk</p>
       </button>
-
-     
-
-     
     </header>
   );
 };

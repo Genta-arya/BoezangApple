@@ -6,6 +6,7 @@ const ModalOrder = ({
   formData,
   handleSubmit,
   setShowModal,
+  productKapasitas,
   productName,
   productPrice,
   productColorOptions,
@@ -41,6 +42,23 @@ const ModalOrder = ({
             className="w-full border border-gray-300 p-2 rounded-lg mt-2"
           >
             {productColorOptions.map((color, index) => (
+              <option key={index} value={color}>
+                {color}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Kapasitas
+          </label>
+          <select
+            name="kapasitas"
+            value={formData.kapasitas || ""}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2 rounded-lg mt-2"
+          >
+            {productKapasitas.map((color, index) => (
               <option key={index} value={color}>
                 {color}
               </option>
@@ -92,7 +110,7 @@ const ModalOrder = ({
           <button
             type="button"
             onClick={() => setShowModal(false)}
-            className="bg-gray-600 text-white px-4 py-2 rounded-lg "
+            className="bg-gray-500  text-white px-4 py-2 rounded-lg "
           >
             Batal
           </button>
