@@ -14,8 +14,6 @@ const Lokasi = () => {
               src={images}
               alt="Background"
               layout="responsive"
-              width={1200}
-              height={800}
               className=""
             />
           </div>
