@@ -50,7 +50,7 @@ const Product = () => {
         </div>
         <div className="flex justify-center hover:transition-all hover:scale-95 duration-300 ease-in">
           <div className="px-4  flex justify-center  p-2 dark:border w-fit items-center rounded-lg bg-black dark:bg-black text-white">
-            <Link href={""}>
+            <Link href={"/katalog?kategori=aksesoris"}>
               <div className="flex items-center gap-2">
               <FaCartPlus size={24} />
                 <p className="md:text-xl text-sm font-bold ">
