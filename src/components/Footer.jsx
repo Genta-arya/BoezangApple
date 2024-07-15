@@ -20,12 +20,11 @@ const Footer = () => {
       <div className="lg:px-24">
         <div className="container mx-auto">
           <div className="container mx-auto flex lg:flex-row md:flex-col-reverse flex-col-reverse gap-4 md:gap-4 lg:gap-24 justify-between">
-            <div className="relative w-full border border-gray-500 rounded-lg shadow-md">
+            <div className="relative w-full  border-gray-500 rounded-lg shadow-md">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.730950246081!2d109.96156977717112!3d-1.853445136513588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e05197a82605831%3A0xe7aa3561ca4e65ec!2sBoezang%20Apple!5e0!3m2!1sen!2sid!4v1721026662245!5m2!1sen!2sid"
-                width="100%"
-                height="450"
-                className="rounded-lg"
+              
+                className="rounded-lg w-full h-72 md:h-[450px] lg:h-[550px] lg:mt-0 md:mt-0 -mt-10 border shadow-2xl border-gray-500"
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -95,11 +94,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-center text-gray-600 dark:text-gray-300 md:text-base text-xs pt-12">
-        <p>
-          &copy; {new Date().getFullYear()} BOEZANG APPLE. All rights reserved.
-        </p>
-      </div>
+    
     </footer>
   );
 };

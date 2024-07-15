@@ -7,6 +7,8 @@ import Image from "next/image";
 import {
   FaInstagram,
   FaMapMarkerAlt,
+  FaMoon,
+  FaSun,
   FaTiktok,
   FaWhatsapp,
 } from "react-icons/fa";
@@ -99,7 +101,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
         onClick={toggleDarkMode}
         className="p-2 bg-gray-200 dark:bg-black  dark:text-white rounded-full"
       >
-        {darkMode ? "🌞" : "🌙"}
+     {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
       </button>
     </div>
   );
