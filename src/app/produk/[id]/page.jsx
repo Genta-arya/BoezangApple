@@ -3,7 +3,7 @@ import { GetSingleProduct } from "@/Service/Api/GetProduct";
 import NavbarDetail from "./components/NavbarDetail";
 import DetailProduk from "./components/DetailProduk";
 import Footer from "@/components/Footer";
-
+import productImage from "@/assets/dummy.png";
 export async function generateMetadata({ params }) {
   const { id } = params;
   try {
@@ -11,15 +11,14 @@ export async function generateMetadata({ params }) {
     return {
       title: `${data.name} - Boezang Apple`, // Title halaman
       description: `Detail lengkap tentang produk ${data.name}. Temukan fitur, harga, dan informasi lainnya.`,
-      keywords: `${data.name}, produk, belanja`, // Keywords untuk SEO (opsional)
+      keywords: `${data.name}, produk, belanja`,
       openGraph: {
         title: `${data.name} - Boezang Apple`,
         description: `Detail lengkap tentang produk ${data.name}. Temukan fitur, harga, dan informasi lainnya.`,
         images: [
           {
-            url: data.thumbnailImage || "/default-image.jpg", // Gambar default jika tidak ada
-            width: 800,
-            height: 600,
+            url: "/dummy.png",
+
             alt: `${data.name} - Boezang Apple`,
           },
         ],

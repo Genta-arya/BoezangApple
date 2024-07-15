@@ -1,7 +1,7 @@
 "use client";
 import useSingleProductStore from "@/ZustandState/useSingleProductStore";
 import React from "react";
-import { FaFacebookF, FaTiktok, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
 const ShareProduct = () => {
   const { products } = useSingleProductStore(); // Ambil produk dari Zustand store
@@ -11,7 +11,6 @@ const ShareProduct = () => {
     window.open(url, "_blank");
   };
 
-  // Fungsi untuk membagikan produk ke Facebook
   const handleShareFacebook = () => {
     const message = `Cek produk ini: ${products.name}`;
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
@@ -20,18 +19,17 @@ const ShareProduct = () => {
     window.open(url, "_blank");
   };
 
-  // Fungsi untuk membagikan produk ke TikTok
-  const handleShareTikTok = () => {
-    const message = `Cek produk ini: ${products.name}`;
-    const url = `https://www.tiktok.com/share/item?url=${encodeURIComponent(
-      window.location.href
+  const handleShareTwitter = () => {
+    const message = `Cek produk ini: ${products.name} ${window.location.href}`;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      message
     )}`;
     window.open(url, "_blank");
   };
 
   return (
     <div className="py-4 flex flex-col gap-4">
-    <p className="text-gray-500">Bagikan Produk</p>
+      <p className="text-gray-500 font-bold">Bagikan Produk</p>
       <div className="flex items-center  justify-start">
         <button
           onClick={handleShareWhatsApp}
@@ -46,13 +44,12 @@ const ShareProduct = () => {
           <FaFacebookF className="text-xl" />
         </button>
         <button
-          onClick={handleShareTikTok}
-          className="flex items-center text-black mx-2"
+          onClick={handleShareTwitter}
+          className="flex items-center text-sky-400 mx-2"
         >
-          <FaTiktok className="text-xl" />
+          <FaTwitter className="text-xl" />
         </button>
       </div>
-   
     </div>
   );
 };

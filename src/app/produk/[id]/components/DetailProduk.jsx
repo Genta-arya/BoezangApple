@@ -6,7 +6,7 @@ import { useParams } from "next/navigation";
 import React from "react";
 import useSingleProductStore from "@/ZustandState/useSingleProductStore";
 import Image from "next/image";
-import dummyImage from "@/assets/dummy.png"; // Gambar dummy jika tidak ada gambar produk
+import dummyImage from "@/assets/dummy.png"; 
 import ModalOrder from "./ModalOrder";
 import ShareProduct from "./ShareProduct";
 
