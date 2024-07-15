@@ -12,6 +12,7 @@ import {
   FaTiktok,
   FaWhatsapp,
 } from "react-icons/fa";
+import Link from "next/link";
 export function NavbarDemo() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -74,6 +75,8 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
               />
             </div>
           </MenuItem>
+
+         <Link href={''}> <p className="font-bold">Event & Promo</p></Link>
           <MenuItem setActive={setActive} active={active} item="Kontak">
             <div className="text-sm grid grid-cols-2 gap-10 p-4 pl-8">
               <div className="flex items-center space-x-2">

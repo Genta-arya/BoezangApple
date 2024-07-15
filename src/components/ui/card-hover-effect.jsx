@@ -1,3 +1,5 @@
+
+"use client"
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -5,11 +7,17 @@ import { useState } from "react";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import imageDummy from "@/assets/dummy.png";
+import { useRouter } from "next/navigation";
 
-const USD_TO_IDR = 15000; // Konversi dari USD ke IDR
+
+const USD_TO_IDR = 15000;
 
 export const HoverEffect = ({ items, className }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const router = useRouter();
+  const handleClick = (item) => {
+    router.push(`/produk/${item}`);
+  };
 
   return (
     <div
@@ -25,9 +33,10 @@ export const HoverEffect = ({ items, className }) => {
         const content = (
           <div
             key={item.id}
-            className="relative group block p-2 h-full w-full"
+            className="relative group block p-2 h-full w-full hover:cursor-pointer"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
+            onClick={() => handleClick(item.id)}
           >
             <AnimatePresence>
               {hoveredIndex === idx && (

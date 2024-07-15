@@ -7,3 +7,9 @@
   background-color: rgba(0, 0, 0, 0.3); /* Adjust the opacity as needed */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Optional: adds a border with transparency */
 }
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
