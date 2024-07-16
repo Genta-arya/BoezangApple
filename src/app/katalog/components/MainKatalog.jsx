@@ -35,7 +35,7 @@ const MainKatalog = () => {
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     };
 
