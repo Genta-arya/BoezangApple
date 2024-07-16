@@ -66,6 +66,14 @@ const Footer = () => {
                 >
                   <FaTiktok size={24} />
                 </a>
+                <a
+                  href="https://x.com/boezangapple"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200"
+                >
+                  <FaTwitter size={24} />
+                </a>
               </div>
               <p className="mb-4 md:text-base text-sm text-justify">
                 Lorem Ipsum is simply dummy text of the printing and typesetting

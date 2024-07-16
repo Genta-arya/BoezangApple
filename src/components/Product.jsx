@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useProductStore from "@/ZustandState/useProductStore";
 import { GetProduct } from "@/Service/Api/GetProduct";
 import { HoverEffect } from "./ui/card-hover-effect";
@@ -8,20 +8,24 @@ import CardProductMobile from "./MobileProduct";
 import { MdOutlinePushPin } from "react-icons/md";
 import Link from "next/link";
 import { FaCartPlus } from "react-icons/fa";
+import SkeletonLoading from "./SkeletonLoading";
 
 const Product = () => {
   const { products, setProducts } = useProductStore();
+  const [loading, setLoading] = useState(false);
 
+  const fetchProducts = async () => {
+    setLoading(true)
+    try {
+      const data = await GetProduct();
+      setProducts(data);
+    } catch (error) {
+      console.error("Failed to fetch products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const data = await GetProduct();
-        setProducts(data);
-      } catch (error) {
-        console.error("Failed to fetch products:", error);
-      }
-    };
-
     fetchProducts();
   }, [setProducts]);
 
@@ -40,26 +44,34 @@ const Product = () => {
           </div>
         </div>
 
-        <div className="hidden lg:block md:block">
-          <HoverEffect items={products} />
-        </div>
-        <div className="lg:hidden md:hidden block">
-          <div className=" mt-2">
-            <CardProductMobile products={products} item={6} />
+        {loading ? (
+          <div className="md:p-2">
+            <SkeletonLoading />
           </div>
-        </div>
-        <div className="flex justify-center hover:transition-all hover:scale-95 duration-300 ease-in">
-          <div className="px-4  flex justify-center  p-2 dark:border w-fit items-center rounded-lg bg-black dark:bg-black text-white">
-            <Link href={"/katalog?kategori=aksesoris"}>
-              <div className="flex items-center gap-2">
-              <FaCartPlus size={24} />
-                <p className="md:text-xl text-sm font-bold ">
-                  Lihat Semua Katalog
-                </p>
+        ) : (
+          <>
+            <div className="hidden lg:block md:block">
+              <HoverEffect items={products} />
+            </div>
+            <div className="lg:hidden md:hidden block">
+              <div className=" mt-2">
+                <CardProductMobile products={products} item={6} />
               </div>
-            </Link>
-          </div>
-        </div>
+            </div>
+            <div className="flex justify-center hover:transition-all hover:scale-95 duration-300 ease-in">
+              <div className="px-4  flex justify-center  p-2 dark:border w-fit items-center rounded-lg bg-black dark:bg-black text-white">
+                <Link href={"/katalog?kategori=aksesoris"}>
+                  <div className="flex items-center gap-2">
+                    <FaCartPlus size={24} />
+                    <p className="md:text-xl text-sm font-bold ">
+                      Lihat Semua Katalog
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

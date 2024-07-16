@@ -81,22 +81,31 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
             <p className="font-bold">Event & Promo</p>
           </Link>
           <MenuItem setActive={setActive} active={active} item="Kontak">
-            <div className="text-sm grid grid-cols-2 gap-10 p-4 pl-8">
+          <h1 className="text-center mb-2 font-bold">Temukan Kami</h1>
+            <div className="text-sm grid grid-cols-2 gap-10 px-8 py-4">
               <div className="flex items-center space-x-2">
                 <FaWhatsapp className="text-xl" />
-                <HoveredLink href="/hobby">WhatsApp</HoveredLink>
+                <HoveredLink href="https://api.whatsapp.com/message/ESTYNQBHHMZEB1?autoload=1&app_absent=0">
+                  WhatsApp
+                </HoveredLink>
               </div>
               <div className="flex items-center space-x-2">
                 <FaInstagram className="text-xl" />
-                <HoveredLink href="/individual">Instagram</HoveredLink>
+                <HoveredLink href="https://www.instagram.com/boezangapple/">
+                  Instagram
+                </HoveredLink>
               </div>
               <div className="flex items-center space-x-2">
                 <FaTiktok className="text-xl" />
-                <HoveredLink href="/team">Tiktok</HoveredLink>
+                <HoveredLink href="https://www.tiktok.com/@boezangapple">
+                  Tiktok
+                </HoveredLink>
               </div>
               <div className="flex items-center space-x-2">
                 <FaMapMarkerAlt className="text-xl" />
-                <HoveredLink href="/enterprise">Lokasi</HoveredLink>
+                <HoveredLink href="https://maps.app.goo.gl/bYiS5YXvs6WVJQMs5">
+                  Lokasi
+                </HoveredLink>
               </div>
             </div>
           </MenuItem>

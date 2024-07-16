@@ -10,6 +10,7 @@ import dummyImage from "@/assets/dummy.png";
 import ModalOrder from "./ModalOrder";
 import ShareProduct from "./ShareProduct";
 import { formatIDR } from "@/lib/utils";
+import SkeletonDetailProduk from "@/components/SkeletonDetail";
 
 const exchangeRate = 15500; // Contoh kurs USD ke IDR, sesuaikan dengan kurs terkini
 
@@ -25,6 +26,7 @@ const DetailProduk = () => {
     kapasitas: "",
   });
   const { products, setProducts } = useSingleProductStore();
+  
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -64,7 +66,7 @@ const DetailProduk = () => {
     return () => document.body.classList.remove("no-scroll");
   }, [showModal]);
 
-  if (loading) return <p className="text-center text-gray-500">Loading...</p>;
+  if (loading) return <SkeletonDetailProduk />;
   if (error)
     return <p className="text-center text-red-500">Error: {error.message}</p>;
 
