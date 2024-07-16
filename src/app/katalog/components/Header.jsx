@@ -45,7 +45,7 @@ const Header = ({ loading }) => {
   };
 
   return (
-    <header className={`flex bg-black items-center justify-between border-b border-gray-300 ${loading ? "py-6":"py-3"} lg:px-24 px-4  `}>
+    <header className={`flex bg-black items-center justify-between border-b border-gray-300 ${loading ? "py-6":"py-5"} lg:px-24 px-4  `}>
       <button onClick={handleBack} className="text-white hover:text-slate-200 md:ml-4">
         <FaArrowLeft className="text-xl" />
       </button>

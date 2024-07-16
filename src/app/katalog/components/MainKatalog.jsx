@@ -29,6 +29,7 @@ const MainKatalog = () => {
     }
 
     const fetchProducts = async () => {
+      setLoading(true)
       try {
         const response = await GetProduct(currentCategory);
         setProducts(response);
