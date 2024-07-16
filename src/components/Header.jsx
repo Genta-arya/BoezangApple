@@ -8,9 +8,12 @@ import Button from "./ui/Button";
 import { TextGenerateEffectDemo } from "@/lib/utils";
 import icon from "@/assets/asset3.jpg"
 import Image from "next/image";
+import Link from "next/link";
 export function Header() {
   const word =
     "Hadir untuk menyempurnakan kebutuhan gadget anda dan memberikan pelayanan terbaik serta memberikan kualitas produk asli resmi";
+
+    
 
   return (
     <AuroraBackground>
@@ -35,10 +38,10 @@ export function Header() {
           </div>
         </div>
         <Button>
-          <div className="flex gap-2 items-center">
+          <Link href={"/katalog?kategori=iphone"} className="flex gap-2 items-center">
             <FaShoppingCart className="mr-2" />
             <p className="font-bold">Belanja Sekarang</p>
-          </div>
+          </Link>
         </Button>
       </motion.div>
     </AuroraBackground>

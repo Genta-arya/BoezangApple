@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
 import FloatingCs from "@/components/FloatingCs";
 import Footer from "@/components/Footer";
+import HarusKami from "@/components/HarusKami";
 import { Header } from "@/components/Header";
 import Lokasi from "@/components/Lokasi";
 
@@ -24,11 +25,12 @@ const page = () => {
 
       <Header />
 
-    <Container />
+      <Container />
       <div className="">
         <Product />
       </div>
       <Lokasi />
+      <HarusKami />
       <Footer />
       <FloatingCs />
     </main>
