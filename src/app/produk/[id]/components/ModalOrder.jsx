@@ -17,7 +17,7 @@ const ModalOrder = ({
         <Image src={icon} className="w-32  rounded-full pb-12" />
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="max-h-[400px] overflow-auto">
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700 mb-1">
             Produk
@@ -27,7 +27,7 @@ const ModalOrder = ({
             name="name"
             value={productName}
             disabled
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2 text-sm lg:text-base rounded-lg"
           />
         </div>
 
@@ -39,7 +39,7 @@ const ModalOrder = ({
             name="color"
             value={formData.color || ""}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-2 rounded-lg mt-2"
+            className="w-full border border-gray-300 text-sm lg:text-base p-2 rounded-lg mt-2"
           >
             {productColorOptions.map((color, index) => (
               <option key={index} value={color}>
@@ -56,7 +56,7 @@ const ModalOrder = ({
             name="kapasitas"
             value={formData.kapasitas || ""}
             onChange={handleChange}
-            className="w-full border border-gray-300 p-2 rounded-lg mt-2"
+            className="w-full border border-gray-300 text-sm lg:text-base p-2 rounded-lg mt-2"
           >
             {productKapasitas.map((color, index) => (
               <option key={index} value={color}>
@@ -77,7 +77,7 @@ const ModalOrder = ({
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2 text-sm lg:text-base rounded-lg"
           />
         </div>
         <div className="mb-4">
@@ -91,7 +91,7 @@ const ModalOrder = ({
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2 text-sm lg:text-base rounded-lg"
           />
         </div>
 
@@ -103,25 +103,25 @@ const ModalOrder = ({
             type="text"
             value={productPrice}
             disabled
-            className="w-full border border-gray-300 p-2 rounded-lg"
+            className="w-full border border-gray-300 p-2  text-sm lg:text-base rounded-lg"
           />
         </div>
-        <div className="flex flex-col-reverse justify-end gap-2">
-          <button
-            type="button"
-            onClick={() => setShowModal(false)}
-            className="bg-gray-500  text-white px-4 py-2 rounded-lg "
-          >
-            Batal
-          </button>
-          <button
-            type="submit"
-            className="bg-black text-white px-4 py-2 rounded-lg font-bold hover:bg-gray-800 transition-colors"
-          >
-            Chat WhatsApp
-          </button>
-        </div>
       </form>
+      <div className="flex flex-col-reverse justify-end gap-2">
+        <button
+          type="button"
+          onClick={() => setShowModal(false)}
+          className="bg-gray-500  text-white px-4 py-2 text-sm lg:text-base rounded-lg "
+        >
+          Batal
+        </button>
+        <button
+          type="submit"
+          className="bg-black text-white px-4 py-2 rounded-lg  text-sm lg:text-base font-bold hover:bg-gray-800 transition-colors"
+        >
+          Chat WhatsApp
+        </button>
+      </div>
     </div>
   );
 };
