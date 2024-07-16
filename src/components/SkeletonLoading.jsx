@@ -4,7 +4,7 @@ const SkeletonLoading = () => {
   const skeletons = Array.from({ length: 6 });
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 md:gap-4 lg:gap-4 gap-1 p-1">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 md:gap-4 lg:gap-4 gap-1 p-1">
       {skeletons.map((_, index) => (
         <div
           key={index}

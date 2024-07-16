@@ -7,6 +7,7 @@ import useKategoriStore from "@/ZustandState/useKategoriStore";
 import Header from "./Header";
 import CardProductMobile from "@/components/MobileProduct";
 import { GetProduct } from "@/Service/Api/GetProduct";
+import SkeletonLoading from "@/components/SkeletonLoading";
 
 const MainKatalog = () => {
   const searchParams = useSearchParams();
@@ -17,7 +18,7 @@ const MainKatalog = () => {
   }));
 
   const [products, setProducts] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const ItemLength = products.length;
 
   useEffect(() => {
@@ -33,11 +34,23 @@ const MainKatalog = () => {
         setProducts(response);
       } catch (error) {
         console.error("Error fetching products:", error);
+      } finally {
+        setLoading(true);
       }
     };
 
     fetchProducts();
   }, [searchParams, setKategori, kategori]);
+
+  if (loading)
+    return (
+      <>
+        <Header loading={loading} />
+        <div className="p-4">
+          <SkeletonLoading />
+        </div>
+      </>
+    );
 
   return (
     <>

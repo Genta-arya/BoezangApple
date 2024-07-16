@@ -7,7 +7,7 @@ import { FaArrowLeft, FaSearch } from "react-icons/fa";
 
 const validCategories = ["iphone", "aksesoris"];
 
-const Header = () => {
+const Header = ({ loading }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { kategori, setKategori } = useKategoriStore((state) => ({
@@ -36,8 +36,6 @@ const Header = () => {
     router.push(url.toString());
   };
 
-  // Fungsi untuk menangani klik tombol back
-
   const handleBack = () => {
     if (window.history.length > 1) {
       router.back();
@@ -47,18 +45,18 @@ const Header = () => {
   };
 
   return (
-    <header className="flex bg-black items-center justify-between border-b border-gray-300 py-3 lg:px-24 px-4">
-      <button
-        onClick={handleBack}
-        className="text-white hover:text-slate-200"
-      >
+    <header className={`flex bg-black items-center justify-between border-b border-gray-300 ${loading ? "py-6":"py-3"} lg:px-24 px-4  `}>
+      <button onClick={handleBack} className="text-white hover:text-slate-200 md:ml-4">
         <FaArrowLeft className="text-xl" />
       </button>
 
-      <div className="flex flex-grow justify-center">
+      <div className="flex flex-grow justify-center ">
         <button
+          disabled={loading}
           onClick={() => handleTabChange("iphone")}
-          className={`py-2 px-4 font-semibold text-sm cursor-pointer ${
+          className={`py-2 px-4 ${
+            loading ? "hidden " : ""
+          } font-semibold text-sm cursor-pointer ${
             kategori === "iphone"
               ? "text-white border-b-2 border-white"
               : "text-slate-300 hover:text-slate-200"
@@ -67,8 +65,11 @@ const Header = () => {
           Iphone
         </button>
         <button
+          disabled={loading}
           onClick={() => handleTabChange("aksesoris")}
-          className={`py-2 px-4 font-semibold text-sm cursor-pointer ${
+          className={`py-2 px-4 ${
+            loading ? "hidden " : ""
+          }  font-semibold text-sm cursor-pointer ${
             kategori === "aksesoris"
               ? "text-white border-b-2 border-white"
               : "text-slate-300 hover:text-slate-200"
@@ -78,7 +79,7 @@ const Header = () => {
         </button>
       </div>
 
-      <button className="text-white hover:text-slate-200">
+      <button className="text-white hover:text-slate-200 md:mr-4">
         <FaSearch className="text-xl" />
       </button>
     </header>
