@@ -13,7 +13,7 @@ export const contentType = "image/png";
 // Image generation
 export default function Icon() {
   const image =
-    "https://boezang-apple-development.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.e16eee5c.png&w=256&q=75";
+    "https://boezang-apple-development.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.fbc61e37.png&w=256&q=75";
   return new ImageResponse(
     (
       // ImageResponse JSX element
