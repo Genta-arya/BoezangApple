@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-
+import icon from "@/assets/icon.png"
 // Route segment config
 export const runtime = "edge";
 
@@ -12,13 +12,13 @@ export const contentType = "image/png";
 
 // Image generation
 export default function Icon() {
-  const image =
-    "https://boezang-apple-development.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.fbc61e37.png&w=256&q=75";
+
+   
   return new ImageResponse(
     (
       // ImageResponse JSX element
       <img
-        src={image}
+        src={"https://api.hkks.shop/uploads/image-(1)-1721129887319.png"}
         alt="Icon"
         style={{ width: "100%", height: "100%", objectFit: "contain" }}
       />
