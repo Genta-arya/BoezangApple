@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Container from "@/components/Container";
 import FloatingCs from "@/components/FloatingCs";
@@ -11,11 +11,11 @@ import Navbar from "@/components/MobileNavbar";
 
 import { NavbarDemo } from "@/components/Navbar";
 import Product from "@/components/Product";
+import { CardStack } from "@/components/ui/Card-Stack";
 
 import React, { useEffect } from "react";
 
 const page = () => {
-
   return (
     <main className="dark:bg-black">
       <div className="hidden lg:block md:block">
@@ -32,8 +32,11 @@ const page = () => {
       <div className="">
         <Product />
       </div>
-      <Lokasi />
+
       <HarusKami />
+      <div className="flex justify-center md:py-24 border-t py-24 lg:py-24">
+        <CardStack />
+      </div>
       <Footer />
       <FloatingCs />
     </main>
