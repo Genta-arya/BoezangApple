@@ -15,6 +15,10 @@ const config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        background: "#000", // Warna latar belakang hitam
+        border: "rgba(255, 255, 255, 0.2)", // Warna border dengan transparansi
+      },
     },
 
     animation: {

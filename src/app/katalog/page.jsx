@@ -10,10 +10,9 @@ const PageKatalog = () => {
   return (
     <main>
       <Suspense fallback={<div>Loading...</div>}>
-        {" "}
-        {/* Boundary Suspense */}
+    
         <MainKatalog />
-      </Suspense>{" "}
+      </Suspense>
       <Footer />
     </main>
   );

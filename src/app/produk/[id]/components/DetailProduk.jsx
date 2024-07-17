@@ -109,7 +109,7 @@ const DetailProduk = () => {
   return (
     <div className="p-4 w-full">
       {products ? (
-        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-12 md:gap-4">
+        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-12 md:gap-4 dark:text-white">
           {/* Gambar Produk */}
           <div className="flex justify-center">
             <Image
@@ -124,7 +124,7 @@ const DetailProduk = () => {
             <h1 className="lg:text-3xl md:text-2xl text-xl font-bold mb-4">
               {products.name}
             </h1>
-            <p className="text-base text-gray-700 mb-4">
+            <p className="text-base  mb-4">
               {products.description}
             </p>
 
@@ -132,7 +132,7 @@ const DetailProduk = () => {
               <h2 className="text-base font-semibold mb-2">
                 Informasi Tambahan
               </h2>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <ul className="list-disc pl-5 space-y-2 ">
                 <li>CLICK & PICKUP</li>
                 <li>Stok: {products.inStock ? "Tersedia" : "Habis"}</li>
                 <li>Bebas Biaya Pengiriman</li>
@@ -145,7 +145,7 @@ const DetailProduk = () => {
               <h2 className="text-base font-semibold mb-2">
                 Spesifikasi Produk
               </h2>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <ul className="list-disc pl-5 space-y-2 ">
                 <li>
                   <strong>Display:</strong> {products.display}
                 </li>
@@ -163,7 +163,7 @@ const DetailProduk = () => {
 
             <div className="mb-6">
               <h2 className="text-base font-semibold mb-2">WARNA:</h2>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <ul className="list-disc pl-5 space-y-2 ">
                 {products.colorOptions.map((color, index) => (
                   <li key={index}>{color}</li>
                 ))}
@@ -172,7 +172,7 @@ const DetailProduk = () => {
 
             <div className="mb-6">
               <h2 className="text-base font-semibold mb-2">KAPASITAS:</h2>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <ul className="list-disc pl-5 space-y-2 ">
                 {products.storageOptions.map((storage, index) => (
                   <li key={index}>{storage}</li>
                 ))}

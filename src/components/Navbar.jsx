@@ -16,14 +16,6 @@ import Link from "next/link";
 export function NavbarDemo() {
   const [darkMode, setDarkMode] = useState(false);
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -52,10 +44,10 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
                 description="Melayani perbaikan segala keruskakan iphone."
               />
               <ProductItem
-                title="Aktivasi IMEI"
+                title="Tukar Tambah"
                 href="#"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ymKooI2A0hsfeVa3SCwbn1Invn1OMQ3MyQ&s"
-                description="Lorem ipsum Lorem Ipsum lorem ipsum lorem ipsum"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEMzIx8RZwk6ri1QQ4WMBwcxJX4nmRfCa1iQ&s"
+                description="Melayani Tukar Tambah Iphone"
               />
             </div>
           </MenuItem>
@@ -81,7 +73,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
             <p className="font-bold">Event & Promo</p>
           </Link>
           <MenuItem setActive={setActive} active={active} item="Kontak">
-          <h1 className="text-center mb-2 font-bold">Temukan Kami</h1>
+            <h1 className="text-center mb-2 font-bold">Temukan Kami</h1>
             <div className="text-sm grid grid-cols-2 gap-10 px-8 py-4">
               <div className="flex items-center space-x-2">
                 <FaWhatsapp className="text-xl" />
@@ -112,12 +104,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
         </Menu>
       </div>
 
-      <button
-        onClick={toggleDarkMode}
-        className="p-2 bg-gray-200 dark:bg-black  dark:text-white rounded-full"
-      >
-        {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
-      </button>
+      <div></div>
     </div>
   );
 }

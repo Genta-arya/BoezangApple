@@ -1,3 +1,5 @@
+"use client"
+
 import Container from "@/components/Container";
 import FloatingCs from "@/components/FloatingCs";
 import Footer from "@/components/Footer";
@@ -10,9 +12,10 @@ import Navbar from "@/components/MobileNavbar";
 import { NavbarDemo } from "@/components/Navbar";
 import Product from "@/components/Product";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 const page = () => {
+
   return (
     <main className="dark:bg-black">
       <div className="hidden lg:block md:block">
