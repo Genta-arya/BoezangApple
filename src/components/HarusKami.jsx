@@ -39,7 +39,7 @@ const HarusKami = () => {
   };
 
   return (
-    <div className="lg:p-4 md:p-4 p-2 bg-gray-100 dark:bg-black dark:text-white rounded-lg shadow-md lg:px-24 md:mt-16">
+    <div className="lg:p-4 md:p-4 p-2 bg-gray-100 dark:bg-black dark:text-white rounded-lg shadow-md lg:px-24 md:mt-16 mt-12">
       <div className="flex justify-center flex-col items-center">
         <div className="flex mb-4">
           {[...Array(5)].map((_, i) => (
@@ -53,7 +53,7 @@ const HarusKami = () => {
       </div>
 
       {faqData.map((faq, index) => (
-        <div key={index} className="mb-4">
+        <div key={index} className="mb-4 px-4">
           <div
             className="flex justify-between items-center cursor-pointer"
             onClick={() => toggleFAQ(index)}
