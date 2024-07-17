@@ -33,3 +33,27 @@ body {
     sans-serif;
 
 }
+
+.fade-carousel .control-dots {
+  display: none; /* Hide dots */
+}
+
+.fade-carousel .slide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Fade transition effect */
+}
+
+.fade-carousel .slide.carousel-slider .slide {
+  opacity: 1;
+}.fade-carousel .control-dots {
+  display: none; /* Hide dots */
+}
+
+.fade-carousel .slide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Fade transition effect */
+}
+
+.fade-carousel .slide.carousel-slider .slide {
+  opacity: 1;
+}

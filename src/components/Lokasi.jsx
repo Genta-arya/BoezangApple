@@ -3,7 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import CSS
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import default CSS
+
 import images1 from "@/assets/asset2.jpg";
 import images2 from "@/assets/asset1.png";
 
@@ -15,14 +16,32 @@ const Lokasi = () => {
           showArrows={false}
           showThumbs={false}
           infiniteLoop={true}
+          showIndicators={false}
           autoPlay={true}
           interval={3000}
+          transitionTime={1000} // Time for fade transition
+          swipeable={true}
+          dynamicHeight={true}
+          emulateTouch={true}
+          useKeyboardArrows={true}
         >
           <div>
-            <Image src={images2} alt="Background 1" layout="responsive" />
+            <Image 
+              src={images2} 
+              alt="Background 1" 
+              width={1200} 
+              height={800} 
+              layout="responsive" 
+            />
           </div>
           <div>
-            <Image src={images1} alt="Background 2" layout="responsive" />
+            <Image 
+              src={images1} 
+              alt="Background 2" 
+              width={1200} 
+              height={800} 
+              layout="responsive" 
+            />
           </div>
         </Carousel>
       </div>

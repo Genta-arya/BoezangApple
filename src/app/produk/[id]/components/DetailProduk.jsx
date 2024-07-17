@@ -26,7 +26,6 @@ const DetailProduk = () => {
     kapasitas: "",
   });
   const { products, setProducts } = useSingleProductStore();
-  
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -72,7 +71,6 @@ const DetailProduk = () => {
 
   const priceInIDR = products.basePrice * exchangeRate;
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -86,15 +84,15 @@ const DetailProduk = () => {
 
     const message = ` Hallo Admin Boezang Apple, \n saya ${
       formData.name
-    } ingin membeli produk \n ${products.name} \n Penyimpanan ${formData.kapasitas}  \n warna ${
-      formData.color
-    } \n dengan harga ${formatIDR(
+    } ingin membeli produk \n ${products.name} \n Penyimpanan ${
+      formData.kapasitas
+    }  \n warna ${formData.color} \n dengan harga ${formatIDR(
       priceInIDR
     )}. \n Apakah masih tersedia? \n\n Berikut link produk: \n ${
       window.location.href
     }`;
 
-    const phoneNumber = "6289618601348";
+    const phoneNumber = "6289694451774";
 
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
@@ -124,9 +122,7 @@ const DetailProduk = () => {
             <h1 className="lg:text-3xl md:text-2xl text-xl font-bold mb-4">
               {products.name}
             </h1>
-            <p className="text-base  mb-4">
-              {products.description}
-            </p>
+            <p className="text-base  mb-4">{products.description}</p>
 
             <div className="mb-6">
               <h2 className="text-base font-semibold mb-2">
@@ -200,7 +196,7 @@ const DetailProduk = () => {
             </div>
             <button
               onClick={() => setShowModal(true)}
-              className="bg-black font-bold hover:scale-95 duration-300 ease-in text-white px-6 py-2 rounded-lg w-full hover:bg-gray-800 transition-all text-sm lg:text-base md:text-base"
+              className="bg-black border font-bold hover:scale-95 duration-300 ease-in text-white px-6 py-2 rounded-lg w-full hover:bg-opacity-50 transition-all text-sm lg:text-base md:text-base"
             >
               Pesan Sekarang
             </button>
