@@ -26,12 +26,12 @@ export const CardStack = ({ offset = 10, scaleFactor = 0.06 }) => {
   };
 
   return (
-    <div className="relative h-60 w-80 md:h-60 md:w-[60%] ">
+    <div className="relative h-60 w-80 md:h-60 md:w-[60%] lg:h-60 lg:w-[40%] ">
       {cards.length > 0 ? (
         cards.map((card, index) => (
           <motion.div
             key={card.id}
-            className="absolute dark:bg-black bg-white h-60 w-80 lg:h-60 lg:w-60 md:h-60 md:w-[100%] rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.1] shadow-black/[0.1] dark:shadow-white/[0.3] flex flex-col justify-between"
+            className="absolute dark:bg-black bg-white h-60 w-80 lg:h-60 lg:w-[100%] md:h-60 md:w-[100%] rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.1] shadow-black/[0.1] dark:shadow-white/[0.3] flex flex-col justify-between"
             style={{
               transformOrigin: "top center",
             }}

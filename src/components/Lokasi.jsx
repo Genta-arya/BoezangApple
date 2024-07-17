@@ -19,7 +19,7 @@ const Lokasi = () => {
           showIndicators={false}
           autoPlay={true}
           interval={3000}
-          transitionTime={1000} // Time for fade transition
+          transitionTime={1000} 
           swipeable={true}
           dynamicHeight={true}
           emulateTouch={true}
