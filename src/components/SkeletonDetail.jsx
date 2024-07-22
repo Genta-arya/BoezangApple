@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 const SkeletonDetailProduk = () => {
@@ -8,47 +10,47 @@ const SkeletonDetailProduk = () => {
           <div className="bg-gray-200 h-96 w-96 mb-4"></div>
         </div>
 
-        <div className="lg:max-w-xl md:w-full py- lg:px-8 md:px-5 px-4 rounded-lg pt-8">
+        <div className="lg:max-w-xl md:w-full py-2 lg:px-8 md:px-5 px-4 rounded-lg pt-8">
           <div className="bg-gray-200 h-8 w-3/4 mb-4"></div>
           <div className="bg-gray-200 h-4 w-full mb-4"></div>
           <div className="bg-gray-200 h-4 w-5/6 mb-4"></div>
 
           <div className="mb-6">
             <div className="bg-gray-200 h-6 w-1/2 mb-2"></div>
-            <ul className="list-disc pl-5 space-y-2">
-              <li className="bg-gray-200 h-4 w-1/2"></li>
-              <li className="bg-gray-200 h-4 w-1/3"></li>
-              <li className="bg-gray-200 h-4 w-1/4"></li>
-              <li className="bg-gray-200 h-4 w-1/2"></li>
-            </ul>
+            <div className="space-y-2">
+              <div className="bg-gray-200 h-4 w-1/2"></div>
+              <div className="bg-gray-200 h-4 w-1/3"></div>
+              <div className="bg-gray-200 h-4 w-1/4"></div>
+              <div className="bg-gray-200 h-4 w-1/2"></div>
+            </div>
           </div>
 
           <div className="mb-6">
             <div className="bg-gray-200 h-6 w-1/2 mb-2"></div>
-            <ul className="list-disc pl-5 space-y-2">
-              <li className="bg-gray-200 h-4 w-3/4"></li>
-              <li className="bg-gray-200 h-4 w-2/3"></li>
-              <li className="bg-gray-200 h-4 w-3/5"></li>
-              <li className="bg-gray-200 h-4 w-1/2"></li>
-            </ul>
+            <div className="space-y-2">
+              <div className="bg-gray-200 h-4 w-3/4"></div>
+              <div className="bg-gray-200 h-4 w-2/3"></div>
+              <div className="bg-gray-200 h-4 w-3/5"></div>
+              <div className="bg-gray-200 h-4 w-1/2"></div>
+            </div>
           </div>
 
           <div className="mb-6">
             <div className="bg-gray-200 h-6 w-1/2 mb-2"></div>
-            <ul className="list-disc pl-5 space-y-2">
-              <li className="bg-gray-200 h-4 w-1/4"></li>
-              <li className="bg-gray-200 h-4 w-1/3"></li>
-              <li className="bg-gray-200 h-4 w-1/2"></li>
-            </ul>
+            <div className="space-y-2">
+              <div className="bg-gray-200 h-4 w-1/4"></div>
+              <div className="bg-gray-200 h-4 w-1/3"></div>
+              <div className="bg-gray-200 h-4 w-1/2"></div>
+            </div>
           </div>
 
           <div className="mb-6">
             <div className="bg-gray-200 h-6 w-1/2 mb-2"></div>
-            <ul className="list-disc pl-5 space-y-2">
-              <li className="bg-gray-200 h-4 w-1/4"></li>
-              <li className="bg-gray-200 h-4 w-1/3"></li>
-              <li className="bg-gray-200 h-4 w-1/2"></li>
-            </ul>
+            <div className="space-y-2">
+              <div className="bg-gray-200 h-4 w-1/4"></div>
+              <div className="bg-gray-200 h-4 w-1/3"></div>
+              <div className="bg-gray-200 h-4 w-1/2"></div>
+            </div>
           </div>
         </div>
 

@@ -12,19 +12,14 @@ const NavbarDetail = () => {
     router.push("/");
   };
 
-  useEffect(() => {
-    // Scroll to the top when the component mounts
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []); // Empty dependency array ensures this effect runs only on mount
-
   return (
     <header className="bg-black text-white p-6 flex items-center justify-between">
       <button
         onClick={handleBack}
-        className="flex items-center text-white gap-4 lg:pl-12"
+        className="flex items-center text-white gap-4 lg:pl-28"
       >
         <FaArrowLeft className="text-xl" />
-        <p className="font-bold">Detail Produk</p>
+        <p className="font-bold lg:ml-4">Detail Produk</p>
       </button>
     </header>
   );

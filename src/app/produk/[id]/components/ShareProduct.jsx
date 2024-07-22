@@ -28,12 +28,12 @@ const ShareProduct = () => {
   };
 
   return (
-    <div className="py-4 flex flex-col gap-4">
-      <p className="text-gray-500 font-bold">Bagikan Produk</p>
+    <div className="py-4 flex flex-col gap-2">
+      <p className="text-gray-500 font-bold">Bagikan</p>
       <div className="flex items-center  justify-start">
         <button
           onClick={handleShareWhatsApp}
-          className="flex items-center text-green-500 mx-2"
+          className="flex items-center text-green-500 "
         >
           <FaWhatsapp className="text-xl" />
         </button>

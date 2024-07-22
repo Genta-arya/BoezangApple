@@ -10,17 +10,17 @@ export async function generateMetadata({ params }) {
   try {
     const data = await GetSingleProduct(id);
     return {
-      title: `${data.data.name} - Boezang Apple`, // Title halaman
+      title: `Jual ${data.data.name} | Boezang Apple`, // Title halaman
       description: `Detail lengkap tentang produk ${data.data.name}. Temukan fitur, harga, dan informasi lainnya.`,
       keywords: `${data.data.name}, produk, belanja`,
       openGraph: {
-        title: `${data.data.name} - Boezang Apple`,
+        title: `Jual ${data.data.name} | Boezang Apple`,
         description: `Detail lengkap tentang produk ${data.data.name}. Temukan fitur, harga, dan informasi lainnya.`,
         images: [
           {
             url: `${data.data.imageUrl}`,
 
-            alt: `${data.data.name} | Boezang Apple`,
+            alt: `Jual ${data.data.name} | Boezang Apple`,
           },
         ],
         siteName: "Boezang Apple",
@@ -50,8 +50,10 @@ const PageDetail = () => {
   return (
     <main>
       <NavbarDetail />
-      <DetailProduk />
-  
+   
+        <DetailProduk />
+     
+
       <Footer />
     </main>
   );

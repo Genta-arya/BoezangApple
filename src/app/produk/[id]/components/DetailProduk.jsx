@@ -13,6 +13,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spesifikas from "./Spesifikas";
 import HarusKami from "@/components/HarusKami";
+import ShareProduct from "./ShareProduct";
+import AvaibleStock from "./Avaible";
 
 export const DataColor = [
   { name: "Black", hex: "#000000" },
@@ -57,7 +59,10 @@ const DetailProduk = () => {
   const [isIphoneCategory, setIsIphoneCategory] = useState(false); // State to track category
 
   const { products, setProducts } = useSingleProductStore();
-
+  useEffect(() => {
+    // Scroll to the top when the component mounts
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []); 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -154,7 +159,7 @@ const DetailProduk = () => {
   };
 
   return (
-    <div className="p-4 w-full bg-white">
+    <div className="p-4 w-full bg-white pt-12">
       {products ? (
         <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-8 md:gap-4 ">
           {/* Gambar Produk */}
@@ -177,15 +182,44 @@ const DetailProduk = () => {
             </h1>
 
             {/* Kapasitas Buttons */}
+
+            <div>
+              <AvaibleStock />
+            </div>
+
+            {selectedVariant?.colorVariants && (
+              <div className="mb-4 mt-8">
+                <p className="block mb-2 text-sm font-bold text-gray-500">
+                  WARNA
+                </p>
+                <div className="flex gap-2 flex-wrap md:w-96 w-80 lg:w-96 text-sm">
+                  {selectedVariant?.colorVariants.map((color) => (
+                    <button
+                      key={color.id}
+                      onClick={() => handleColorClick(color.value)}
+                      className={`py-4 w-20 rounded border ${
+                        formData.color === color.value
+                          ? "ring-2 scale-110 ring-blue-800 shadow-2xl shadow-white"
+                          : ""
+                      } transition-all`}
+                      style={{ backgroundColor: color.value }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+
             {isIphoneCategory && (
               <div className="mb-4">
-                <p className="block mb-2 text-sm font-bold text-gray-500">KAPASITAS</p>
+                <p className="block mb-2 text-sm font-bold text-gray-500">
+                  KAPASITAS
+                </p>
                 <div className="flex gap-2 flex-wrap w-80 md:w-96 lg:w-96 text-sm">
                   {products.variants.map((variant) => (
                     <button
                       key={variant.id}
                       onClick={() => handleCapacityClick(variant.kapasitas)}
-                      className={`py-2 px-4 rounded-md ${
+                      className={`py-2 px-4 rounded ${
                         selectedCapacity === variant.kapasitas.toString()
                           ? "bg-blue-800 text-white scale-110 "
                           : "text-black border"
@@ -198,32 +232,15 @@ const DetailProduk = () => {
               </div>
             )}
 
-            {/* Warna Buttons */}
-            {selectedVariant?.colorVariants && (
-              <div className="mb-4">
-                <p className="block mb-2 text-sm font-bold text-gray-500">WARNA</p>
-                <div className="flex gap-2 flex-wrap md:w-96 w-80 lg:w-96 text-sm">
-                  {selectedVariant?.colorVariants.map((color) => (
-                    <button
-                      key={color.id}
-                      onClick={() => handleColorClick(color.value)}
-                      className={`py-4 w-20 rounded-lg border ${
-                        formData.color === color.value
-                          ? "ring-2 scale-110 ring-blue-800 shadow-2xl shadow-white"
-                          : ""
-                      } transition-all`}
-                      style={{ backgroundColor: color.value }}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Product Description */}
             <div
               className="border-t pt-4 mt-4 pb-4 text-justify"
               dangerouslySetInnerHTML={{ __html: products.deskripsi }}
             />
+
+            <div className="w-full border-t">
+              {" "}
+              <ShareProduct />
+            </div>
           </div>
 
           {/* Harga dan Kapasitas */}
@@ -260,7 +277,7 @@ const DetailProduk = () => {
 
             <button
               onClick={handleSubmit}
-              className="bg-black border font-bold hover:scale-95 duration-300 ease-in text-white px-6 py-2 rounded-lg w-full hover:bg-opacity-50 transition-all text-sm lg:text-base md:text-base"
+              className="bg-black border font-bold hover:scale-95 duration-300 ease-in text-white px-6 py-2 rounded w-full hover:bg-opacity-50 transition-all text-sm lg:text-base md:text-base"
             >
               <div className="flex items-center gap-2 lg:text-lg justify-center">
                 <FaWhatsapp size={24} />
