@@ -174,8 +174,8 @@ const DetailProduk = () => {
           </div>
 
           {/* Detail Produk */}
-          <div className="lg:max-w-[35%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8">
-            <h1 className="lg:text-3xl font-bold md:text-3xl text-xl pb-8">
+          <div className="lg:max-w-[35%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8 ">
+            <h1  className="lg:text-3xl font-extrabold text-[#555555] md:text-[28px] text-xl pb-3 ">
               {products.name}{" "}
               {isIphoneCategory && selectedCapacity && `${selectedCapacity} GB`}
               {formData.color && ` , ${colorName}`}
