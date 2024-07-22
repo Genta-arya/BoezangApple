@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronUp, FaStar } from "react-icons/fa";
+import { usePathname, useRouter } from "next/navigation";
 
 const faqData = [
   {
@@ -33,13 +34,22 @@ const faqData = [
 
 const HarusKami = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const router = usePathname();
+
+  console.log(router)
+  const isRootPath = router === "/";
+
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <div className="lg:p-4 md:p-4 p-2 bg-gray-100 dark:bg-black dark:text-white rounded-lg shadow-md lg:px-24 md:mt-16 mt-12">
+    <div
+      className={` pb-8 lg:px-24 md:pt-16 mt-12 ${
+        isRootPath ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
       <div className="flex justify-center flex-col items-center">
         <div className="flex mb-4">
           {[...Array(5)].map((_, i) => (
@@ -47,7 +57,7 @@ const HarusKami = () => {
           ))}
         </div>
         <h2 className="text-2xl font-bold ">MENGAPA HARUS</h2>
-        <h2 className="text-2xl md:text-3xl font-bold md:mb-12 lg:mb-12 mb-8 text-gray-800 dark:text-slate-300">
+        <h2 className="text-2xl md:text-3xl font-bold md:mb-12 lg:mb-12 mb-8 text-gray-400 ">
           DIBOEZANG APPLE STORE
         </h2>
       </div>

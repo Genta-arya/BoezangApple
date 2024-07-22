@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
           {
             url: `${data.imageUrl}`,
 
-            alt: `${data.data.name} - Boezang Apple`,
+            alt: `${data.data.name} | Boezang Apple`,
           },
         ],
         siteName: "Boezang Apple",
@@ -51,7 +51,7 @@ const PageDetail = () => {
     <main>
       <NavbarDetail />
       <DetailProduk />
-      <HarusKami />
+  
       <Footer />
     </main>
   );

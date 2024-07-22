@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, onClose }) => {
             <span>Layanan</span>
           </a>
           <a
-            href="/katalog?kategori=aksesoris"
+            href="/katalog?kategori=iphone"
             className="flex items-center space-x-2 text-black dark:text-white"
           >
             <FaShoppingCart className="text-2xl" color="gray" />

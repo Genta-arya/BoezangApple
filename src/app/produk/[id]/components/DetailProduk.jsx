@@ -12,6 +12,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spesifikas from "./Spesifikas";
+import HarusKami from "@/components/HarusKami";
 
 export const DataColor = [
   { name: "Black", hex: "#000000" },
@@ -153,9 +154,9 @@ const DetailProduk = () => {
   };
 
   return (
-    <div className="p-4 w-full">
+    <div className="p-4 w-full bg-white">
       {products ? (
-        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-8 md:gap-4 dark:text-white">
+        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-8 md:gap-4 ">
           {/* Gambar Produk */}
           <div className="flex justify-center">
             <Image
@@ -163,7 +164,7 @@ const DetailProduk = () => {
               alt={products.name}
               width={384}
               height={384}
-              className="rounded-lg lg:shadow-lg  lg:w-96 lg:h-96 md:w-96 md:h-96 "
+              className="rounded-lg  lg:w-96 lg:h-96 md:w-96 md:h-96 "
             />
           </div>
 
@@ -178,16 +179,16 @@ const DetailProduk = () => {
             {/* Kapasitas Buttons */}
             {isIphoneCategory && (
               <div className="mb-4">
-                <p className="block mb-2 text-sm font-medium">KAPASITAS</p>
+                <p className="block mb-2 text-sm font-bold text-gray-500">KAPASITAS</p>
                 <div className="flex gap-2 flex-wrap w-80 md:w-96 lg:w-96 text-sm">
                   {products.variants.map((variant) => (
                     <button
                       key={variant.id}
                       onClick={() => handleCapacityClick(variant.kapasitas)}
-                      className={`py-2 px-4 rounded-lg border ${
+                      className={`py-2 px-4 rounded-md ${
                         selectedCapacity === variant.kapasitas.toString()
-                          ? "bg-white text-black scale-110 border-red-500 border"
-                          : "text-white border"
+                          ? "bg-blue-800 text-white scale-110 "
+                          : "text-black border"
                       } hover:bg-slate-100 hover:text-black transition-all`}
                     >
                       {variant.kapasitas} GB
@@ -200,7 +201,7 @@ const DetailProduk = () => {
             {/* Warna Buttons */}
             {selectedVariant?.colorVariants && (
               <div className="mb-4">
-                <p className="block mb-2 text-sm font-medium">WARNA</p>
+                <p className="block mb-2 text-sm font-bold text-gray-500">WARNA</p>
                 <div className="flex gap-2 flex-wrap md:w-96 w-80 lg:w-96 text-sm">
                   {selectedVariant?.colorVariants.map((color) => (
                     <button
@@ -208,7 +209,7 @@ const DetailProduk = () => {
                       onClick={() => handleColorClick(color.value)}
                       className={`py-4 w-20 rounded-lg border ${
                         formData.color === color.value
-                          ? "ring-2 scale-110 ring-red-500 shadow-2xl shadow-white"
+                          ? "ring-2 scale-110 ring-blue-800 shadow-2xl shadow-white"
                           : ""
                       } transition-all`}
                       style={{ backgroundColor: color.value }}
@@ -226,7 +227,7 @@ const DetailProduk = () => {
           </div>
 
           {/* Harga dan Kapasitas */}
-          <div className="mb-6 border py-2 px-8 lg:max-w-lg lg:w-[25%] rounded-lg pt-8 h-fit pb-8">
+          <div className="mb-6 border py-2  px-8 lg:max-w-lg lg:w-[25%] rounded-lg pt-8 h-fit pb-8">
             {/* Price Display */}
             {selectedVariant?.promo ? (
               <div className="text-red-500 lg:text-2xl md:text-xl text-xl font-semibold mb-8">
@@ -271,7 +272,11 @@ const DetailProduk = () => {
       ) : (
         <p className="text-center text-gray-500">Produk tidak ditemukan</p>
       )}
-      <Spesifikas data={products.spesifikasi} />
+
+      <div className="bg-white">
+        <Spesifikas data={products.spesifikasi} />
+        <HarusKami />
+      </div>
       <ToastContainer />
     </div>
   );
