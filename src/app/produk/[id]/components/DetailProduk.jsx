@@ -161,7 +161,7 @@ const DetailProduk = () => {
   return (
     <div className="p-4 w-full bg-white pt-36">
       {products ? (
-        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-8 md:gap-4 ">
+        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-4 md:gap-4 ">
           {/* Gambar Produk */}
           <div className="flex justify-center">
             <Image
@@ -174,7 +174,7 @@ const DetailProduk = () => {
           </div>
 
           {/* Detail Produk */}
-          <div className="lg:max-w-[38%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8">
+          <div className="lg:max-w-[35%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8">
             <h1 className="lg:text-3xl font-bold md:text-3xl text-xl pb-8">
               {products.name}{" "}
               {isIphoneCategory && selectedCapacity && `${selectedCapacity} GB`}
