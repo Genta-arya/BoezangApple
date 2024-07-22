@@ -5,9 +5,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 import { FaArrowLeft, FaSearch } from "react-icons/fa";
 
-const validCategories = ["iphone", "aksesoris"];
+const validCategories = ["iphone", "accessories"];
 
-const Header = ({ loading }) => {
+const Header = ({ loading, state }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const { kategori, setKategori } = useKategoriStore((state) => ({
@@ -45,8 +45,15 @@ const Header = ({ loading }) => {
   };
 
   return (
-    <header className={`flex bg-black items-center justify-between border-b border-gray-300 ${loading ? "py-6":"py-5"} lg:px-24 px-4  `}>
-      <button onClick={handleBack} className="text-white hover:text-slate-200 md:ml-4">
+    <header
+      className={`flex bg-black items-center justify-between border-b border-gray-300 ${
+        loading ? "py-6" : "py-5"
+      } lg:px-24 px-4  `}
+    >
+      <button
+        onClick={handleBack}
+        className="text-white hover:text-slate-200 md:ml-4"
+      >
         <FaArrowLeft className="text-xl" />
       </button>
 
@@ -66,11 +73,11 @@ const Header = ({ loading }) => {
         </button>
         <button
           disabled={loading}
-          onClick={() => handleTabChange("aksesoris")}
+          onClick={() => handleTabChange("accessories")}
           className={`py-2 px-4 ${
             loading ? "hidden " : ""
           }  font-semibold text-sm cursor-pointer ${
-            kategori === "aksesoris"
+            kategori === "accessories"
               ? "text-white border-b-2 border-white"
               : "text-slate-300 hover:text-slate-200"
           }`}
@@ -78,10 +85,6 @@ const Header = ({ loading }) => {
           Aksesoris
         </button>
       </div>
-
-      <button className="text-white hover:text-slate-200 md:mr-4">
-        <FaSearch className="text-xl" />
-      </button>
     </header>
   );
 };

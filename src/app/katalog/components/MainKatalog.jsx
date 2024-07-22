@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import useKategoriStore from "@/ZustandState/useKategoriStore";
 import Header from "./Header";
 import CardProductMobile from "@/components/MobileProduct";
-import { GetProduct } from "@/Service/Api/GetProduct";
+import { GetProductByCategory } from "@/Service/Api/GetProduct";
 import SkeletonLoading from "@/components/SkeletonLoading";
 
 const MainKatalog = () => {
@@ -29,10 +29,10 @@ const MainKatalog = () => {
     }
 
     const fetchProducts = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
-        const response = await GetProduct(currentCategory);
-        setProducts(response);
+        const response = await GetProductByCategory(currentCategory);
+        setProducts(response.data.filter(product => product.status === true)); // Filter products by status
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -41,12 +41,12 @@ const MainKatalog = () => {
     };
 
     fetchProducts();
-  }, [searchParams, setKategori, kategori]);
+  }, [searchParams]);
 
   if (loading)
     return (
       <>
-        <Header loading={loading} />
+        <Header loading={loading} state={setProducts} />
         <div className="p-4">
           <SkeletonLoading />
         </div>
@@ -55,11 +55,14 @@ const MainKatalog = () => {
 
   return (
     <>
-      <Header />
-
-      <div className="lg:px-24">
-        <CardProductMobile products={products} item={ItemLength} />
-      </div>
+      <Header loading={loading} state={setProducts}/>
+      {products.length === 0  ? (
+        <div className="text-center text-white py-24">Produk tidak ditemukan</div>
+      ) : (
+        <div className="lg:px-24">
+          <CardProductMobile products={products} item={ItemLength} />
+        </div>
+      )}
     </>
   );
 };

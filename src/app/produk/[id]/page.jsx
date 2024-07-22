@@ -4,22 +4,23 @@ import NavbarDetail from "./components/NavbarDetail";
 import DetailProduk from "./components/DetailProduk";
 import Footer from "@/components/Footer";
 import productImage from "@/assets/dummy.png";
+import HarusKami from "@/components/HarusKami";
 export async function generateMetadata({ params }) {
   const { id } = params;
   try {
     const data = await GetSingleProduct(id);
     return {
-      title: `${data.name} - Boezang Apple`, // Title halaman
-      description: `Detail lengkap tentang produk ${data.name}. Temukan fitur, harga, dan informasi lainnya.`,
-      keywords: `${data.name}, produk, belanja`,
+      title: `${data.data.name} - Boezang Apple`, // Title halaman
+      description: `Detail lengkap tentang produk ${data.data.name}. Temukan fitur, harga, dan informasi lainnya.`,
+      keywords: `${data.data.name}, produk, belanja`,
       openGraph: {
-        title: `${data.name} - Boezang Apple`,
-        description: `Detail lengkap tentang produk ${data.name}. Temukan fitur, harga, dan informasi lainnya.`,
+        title: `${data.data.name} - Boezang Apple`,
+        description: `Detail lengkap tentang produk ${data.data.name}. Temukan fitur, harga, dan informasi lainnya.`,
         images: [
           {
             url: "/dummy.png",
 
-            alt: `${data.name} - Boezang Apple`,
+            alt: `${data.data.name} - Boezang Apple`,
           },
         ],
         siteName: "Boezang Apple",
@@ -50,6 +51,7 @@ const PageDetail = () => {
     <main>
       <NavbarDetail />
       <DetailProduk />
+      <HarusKami />
       <Footer />
     </main>
   );

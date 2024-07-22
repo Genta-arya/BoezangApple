@@ -6,42 +6,76 @@ import { useParams } from "next/navigation";
 import React from "react";
 import useSingleProductStore from "@/ZustandState/useSingleProductStore";
 import Image from "next/image";
-import dummyImage from "@/assets/dummy.png";
-import ModalOrder from "./ModalOrder";
-import ShareProduct from "./ShareProduct";
-import { formatIDR } from "@/lib/utils";
 import SkeletonDetailProduk from "@/components/SkeletonDetail";
+import { formatDate, formatIDR } from "@/lib/utils";
+import { FaWhatsapp } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Spesifikas from "./Spesifikas";
 
-const exchangeRate = 15500; // Contoh kurs USD ke IDR, sesuaikan dengan kurs terkini
+export const DataColor = [
+  { name: "Black", hex: "#000000" },
+  { name: "White", hex: "#FFFFFF" },
+  { name: "Red", hex: "#FF3B30" },
+  { name: "Green", hex: "#4CAF50" },
+  { name: "Blue", hex: "#007AFF" },
+  { name: "Purple", hex: "#6A0D91" },
+  { name: "Pacific Blue", hex: "#003F5C" },
+  { name: "Silver", hex: "#C0C0C0" },
+  { name: "Gold", hex: "#FFD700" },
+  { name: "Graphite", hex: "#4B4B4B" },
+  { name: "Starlight", hex: "#F0E6F6" },
+  { name: "Midnight", hex: "#003F5C" },
+  { name: "Pink", hex: "#FF69B4" },
+  { name: "Yellow", hex: "#FFFF00" },
+  { name: "Deep Purple", hex: "#4B0082" },
+  { name: "Space Black", hex: "#1C1C1C" },
+  { name: "Sierra Blue", hex: "#7B8D9B" },
+  { name: "Light Green", hex: "#00FF00" },
+];
+
+const validateColor = (colorName) => {
+  const color = DataColor.find(
+    (c) => c.hex.toLowerCase() === colorName.toLowerCase()
+  );
+  return color ? color.hex : null;
+};
 
 const DetailProduk = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showModal, setShowModal] = useState(false); // State untuk kontrol modal
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     color: "",
     kapasitas: "",
   });
+  const [selectedCapacity, setSelectedCapacity] = useState("");
+  const [selectedVariant, setSelectedVariant] = useState(null);
+  const [isIphoneCategory, setIsIphoneCategory] = useState(false); // State to track category
+
   const { products, setProducts } = useSingleProductStore();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const data = await GetSingleProduct(id);
-        setProducts(data);
-        if (data.colorOptions.length > 0) {
+        setProducts(data.data);
+
+        // Check if the category is 'iphone'
+        setIsIphoneCategory(data.data.category === "iphone");
+
+        if (data.data.variants.length > 0) {
+          const firstVariant = data.data.variants[0];
+          setSelectedCapacity(firstVariant.kapasitas.toString());
+          setSelectedVariant(null); // Initialize as null
+
+          // Optionally, you can set `formData` here if needed, but keep values empty initially
           setFormData((prev) => ({
             ...prev,
-            color: data.colorOptions[0],
-          }));
-        }
-        if (data.storageOptions.length > 0) {
-          setFormData((prev) => ({
-            ...prev,
-            kapasitas: data.storageOptions[0],
+            color: "",
+            kapasitas: "",
           }));
         }
       } catch (err) {
@@ -52,175 +86,193 @@ const DetailProduk = () => {
     };
 
     fetchProduct();
-  }, [id]);
+  }, [id, setProducts]);
 
   useEffect(() => {
-    if (showModal) {
-      document.body.classList.add("no-scroll");
-    } else {
-      document.body.classList.remove("no-scroll");
+    if (products?.variants) {
+      const variant = products.variants.find(
+        (v) => v.kapasitas.toString() === selectedCapacity
+      );
+      setSelectedVariant(variant || null);
     }
-
-    // Clean up the effect
-    return () => document.body.classList.remove("no-scroll");
-  }, [showModal]);
+  }, [selectedCapacity, products]);
 
   if (loading) return <SkeletonDetailProduk />;
   if (error)
-    return <p className="text-center text-red-500">Error: {error.message}</p>;
+    return (
+      <p className="text-center text-white py-8">Produk Tidak ditemukan</p>
+    );
 
-  const priceInIDR = products.basePrice * exchangeRate;
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleCapacityClick = (capacity) => {
+    setSelectedCapacity(capacity.toString());
   };
+
+  const handleColorClick = (colorName) => {
+    const hexColor = validateColor(colorName);
+    if (hexColor) {
+      setFormData((prev) => ({
+        ...prev,
+        color: colorName,
+      }));
+    } else {
+      console.error(`Color ${colorName} is not valid.`);
+    }
+  };
+
+  const colorName =
+    DataColor.find((c) => c.hex.toLowerCase() === formData.color.toLowerCase())
+      ?.name || "";
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const message = ` Hallo Admin Boezang Apple, \n saya ${
+    if (!formData.color) {
+      return toast.info("Silahkan Pilih Warna");
+    }
+    const price = selectedVariant?.promo
+      ? selectedVariant.price -
+        (selectedVariant.price * selectedVariant.promo.discount) / 100
+      : selectedVariant?.price || 0;
+
+    const message = `Hallo Admin Boezang Apple, \n saya ${
       formData.name
     } ingin membeli produk \n ${products.name} \n Penyimpanan ${
       formData.kapasitas
-    }  \n warna ${formData.color} \n dengan harga ${formatIDR(
-      priceInIDR
+    } GB \n warna ${colorName} \n dengan harga ${formatIDR(
+      price
     )}. \n Apakah masih tersedia? \n\n Berikut link produk: \n ${
       window.location.href
     }`;
 
     const phoneNumber = "6289694451774";
-
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
 
     window.location.href = whatsappUrl;
-
-    // Tutup modal
-    setShowModal(false);
   };
 
   return (
     <div className="p-4 w-full">
       {products ? (
-        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-12 md:gap-4 dark:text-white">
+        <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-8 md:gap-4 dark:text-white">
           {/* Gambar Produk */}
           <div className="flex justify-center">
             <Image
-              src={dummyImage}
+              src={products.imageUrl}
               alt={products.name}
-              className="rounded-lg lg:shadow-lg lg:border lg:w-96 lg:h-96  lg:border-gray-300"
+              width={384}
+              height={384}
+              className="rounded-lg lg:shadow-lg lg:border lg:w-96 lg:h-96 md:w-96 md:h-96 lg:border-gray-300"
             />
           </div>
 
           {/* Detail Produk */}
-          <div className="lg:max-w-xl md:w-full border py- lg:px-8 md:px-5 px-4 rounded-lg pt-8">
-            <h1 className="lg:text-3xl md:text-2xl text-xl font-bold mb-4">
-              {products.name}
+          <div className="lg:max-w-[38%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8">
+            <h1 className="lg:text-3xl font-bold md:text-3xl text-xl pb-8">
+              {products.name}{" "}
+              {isIphoneCategory && selectedCapacity && `${selectedCapacity} GB`}
+              {formData.color && ` , ${colorName}`}
             </h1>
-            <p className="text-base  mb-4">{products.description}</p>
 
-            <div className="mb-6">
-              <h2 className="text-base font-semibold mb-2">
-                Informasi Tambahan
-              </h2>
-              <ul className="list-disc pl-5 space-y-2 ">
-                <li>CLICK & PICKUP</li>
-                <li>Stok: {products.inStock ? "Tersedia" : "Habis"}</li>
-                <li>Bebas Biaya Pengiriman</li>
-                <li>Cicilan 0% Hingga 24 Bulan</li>
-              </ul>
-            </div>
+            {/* Kapasitas Buttons */}
+            {isIphoneCategory && (
+              <div className="mb-4">
+                <p className="block mb-2 text-sm font-medium">KAPASITAS</p>
+                <div className="flex gap-2 flex-wrap w-80 md:w-96 lg:w-96 text-sm">
+                  {products.variants.map((variant) => (
+                    <button
+                      key={variant.id}
+                      onClick={() => handleCapacityClick(variant.kapasitas)}
+                      className={`py-2 px-4 rounded-lg border ${
+                        selectedCapacity === variant.kapasitas.toString()
+                          ? "bg-white text-black scale-110 border-red-500 border"
+                          : "text-white border"
+                      } hover:bg-slate-100 hover:text-black transition-all`}
+                    >
+                      {variant.kapasitas} GB
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
-            {/* Spesifikasi Produk */}
-            <div className="mb-6">
-              <h2 className="text-base font-semibold mb-2">
-                Spesifikasi Produk
-              </h2>
-              <ul className="list-disc pl-5 space-y-2 ">
-                <li>
-                  <strong>Display:</strong> {products.display}
-                </li>
-                <li>
-                  <strong>CPU:</strong> {products.CPU}
-                </li>
-                <li>
-                  <strong>Rear Camera:</strong> {products.camera?.rearCamera}
-                </li>
-                <li>
-                  <strong>Front Camera:</strong> {products.camera?.frontCamera}
-                </li>
-              </ul>
-            </div>
+            {/* Warna Buttons */}
+            {selectedVariant?.colorVariants && (
+              <div className="mb-4">
+                <p className="block mb-2 text-sm font-medium">WARNA</p>
+                <div className="flex gap-2 flex-wrap md:w-96 w-80 lg:w-96 text-sm">
+                  {selectedVariant?.colorVariants.map((color) => (
+                    <button
+                      key={color.id}
+                      onClick={() => handleColorClick(color.value)}
+                      className={`py-4 w-20 rounded-lg border ${
+                        formData.color === color.value
+                          ? "ring-2 scale-110 ring-red-500 shadow-2xl shadow-white"
+                          : ""
+                      } transition-all`}
+                      style={{ backgroundColor: color.value }}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
 
-            <div className="mb-6">
-              <h2 className="text-base font-semibold mb-2">WARNA:</h2>
-              <ul className="list-disc pl-5 space-y-2 ">
-                {products.colorOptions.map((color, index) => (
-                  <li key={index}>{color}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <h2 className="text-base font-semibold mb-2">KAPASITAS:</h2>
-              <ul className="list-disc pl-5 space-y-2 ">
-                {products.storageOptions.map((storage, index) => (
-                  <li key={index}>{storage}</li>
-                ))}
-              </ul>
-            </div>
-
-            <ShareProduct />
+            {/* Product Description */}
+            <div
+              className="border-t pt-4 mt-4 pb-4 text-justify"
+              dangerouslySetInnerHTML={{ __html: products.deskripsi }}
+            />
           </div>
 
-          {/* Harga dan Tombol */}
-          <div className="mb-6 border py-2 px-8 rounded-lg pt-8 h-fit pb-8">
-            <p className="lg:text-2xl md:text-xl text-xl font-semibold text-green-600 mb-4">
-              {formatIDR(priceInIDR)}
-            </p>
+          {/* Harga dan Kapasitas */}
+          <div className="mb-6 border py-2 px-8 lg:max-w-lg lg:w-[25%] rounded-lg pt-8 h-fit pb-8">
+            {/* Price Display */}
+            {selectedVariant?.promo ? (
+              <div className="text-red-500 lg:text-2xl md:text-xl text-xl font-semibold mb-8">
+                {/* Original Price */}
+                <p className="text-green-600 text-center">
+                  {formatIDR(
+                    selectedVariant.price -
+                      (selectedVariant.price * selectedVariant.promo.discount) /
+                        100
+                  )}
+                </p>
+                <div className="flex items-center gap-2 justify-center">
+                  <p className="line-through text-gray-600 dark:text-gray-300 text-center text-sm font-sans">
+                    {formatIDR(selectedVariant.price)}
+                  </p>
+                  <p className="text-red-500 font-light text-sm">
+                    [{selectedVariant.promo.discount}%]
+                  </p>
+                </div>
+                {/* Promo Expiry Date */}
+                <p className="text-gray-600 dark:text-gray-300 text-xs text-center mt-2">
+                  Berlaku Hingga: {formatDate(selectedVariant.promo.expiryDate)}
+                </p>
+              </div>
+            ) : (
+              <p className="lg:text-2xl md:text-xl text-xl font-semibold text-green-600 mb-4 text-center">
+                {formatIDR(selectedVariant?.price || 0)}
+              </p>
+            )}
 
-            <div className="mb-6">
-              <h2 className="text-base font-semibold mb-2">Qty:</h2>
-              <input
-                type="number"
-                min="1"
-                value={1}
-                disabled
-                className="w-full border border-gray-300 p-2 rounded-lg"
-              />
-            </div>
             <button
-              onClick={() => setShowModal(true)}
+              onClick={handleSubmit}
               className="bg-black border font-bold hover:scale-95 duration-300 ease-in text-white px-6 py-2 rounded-lg w-full hover:bg-opacity-50 transition-all text-sm lg:text-base md:text-base"
             >
-              Pesan Sekarang
+              <div className="flex items-center gap-2 lg:text-lg justify-center">
+                <FaWhatsapp size={24} />
+                <p>Pesan Sekarang</p>
+              </div>
             </button>
           </div>
         </div>
       ) : (
         <p className="text-center text-gray-500">Produk tidak ditemukan</p>
       )}
-
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 z-50 bg-gray-800 bg-opacity-50 flex justify-center items-center">
-          <ModalOrder
-            formData={formData}
-            handleSubmit={handleSubmit}
-            setShowModal={setShowModal}
-            handleChange={handleChange}
-            productName={products.name}
-            productPrice={formatIDR(priceInIDR)}
-            productKapasitas={products.storageOptions}
-            productColorOptions={products.colorOptions}
-          />
-        </div>
-      )}
+      <Spesifikas data={products.spesifikasi} />
+      <ToastContainer />
     </div>
   );
 };

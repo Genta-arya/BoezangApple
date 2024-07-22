@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BaseUrl = "https://dummyapi.online/api";
+const BaseUrl = "https://boezangapi.hkks.shop/api/v1";
 
 const AxiosConfig = axios.create({
   baseURL: BaseUrl,

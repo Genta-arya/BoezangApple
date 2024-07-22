@@ -1,6 +1,5 @@
-
-"use client"
-import { cn } from "@/lib/utils";
+"use client";
+import { cn, formatDate, formatIDR } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,14 +8,22 @@ import { FaStar } from "react-icons/fa";
 import imageDummy from "@/assets/dummy.png";
 import { useRouter } from "next/navigation";
 
-
-const USD_TO_IDR = 15000;
-
 export const HoverEffect = ({ items, className }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const router = useRouter();
   const handleClick = (item) => {
     router.push(`/produk/${item}`);
+  };
+
+  const getLowestPriceVariant = (variants) => {
+    if (!variants || variants.length === 0) return null;
+    return variants.reduce((prev, curr) =>
+      curr.price < prev.price ? curr : prev
+    );
+  };
+
+  const getPromoPrice = (price, discount) => {
+    return price - (price * discount) / 100;
   };
 
   return (
@@ -26,9 +33,9 @@ export const HoverEffect = ({ items, className }) => {
         className
       )}
     >
-      {items.slice(0, 8).map((item, idx) => {
-        const priceInIDR = item.basePrice * USD_TO_IDR;
+      {items.map((item, idx) => {
         const rating = 5;
+        const lowestPriceVariant = getLowestPriceVariant(item.variants);
 
         const content = (
           <div
@@ -58,28 +65,52 @@ export const HoverEffect = ({ items, className }) => {
             <Card>
               <div className="flex justify-center">
                 <Image
-                  src={imageDummy}
+                  src={item.imageUrl}
                   alt={item.name}
-                  className="rounded-t-2xl"
+                  className="rounded-lg"
                   width={300}
                   height={300}
                 />
               </div>
 
-              <CardTitle>{item.name}</CardTitle>
-              <div className="flex items-center mt-2">
-                {[...Array(rating)].map((_, i) => (
-                  <FaStar key={i} className="text-yellow-400" />
-                ))}
+              <div className="flex justify-between items-center gap-4">
+                <CardTitle>{item.name}</CardTitle>
+                <div className="flex items-center mt-2 justify-end">
+                  {[...Array(rating)].map((_, i) => (
+                    <FaStar key={i} className="text-yellow-400" />
+                  ))}
+                </div>
               </div>
-              <CardDescription>{item.description}</CardDescription>
-              <p className="text-zinc-400 mt-2">
-                IDR {priceInIDR.toLocaleString()}
-              </p>
 
-              <p className="text-zinc-400 mt-2">
-                In Stock: {item.inStock ? "Yes" : "No"}
-              </p>
+              <div className="mt-2">
+                {lowestPriceVariant && lowestPriceVariant.promo ? (
+                  <div>
+                    <p className="text-gray-800 dark:text-gray-100 text-base font-bold">
+                      <span className="line-through text-gray-500">
+                        {formatIDR(lowestPriceVariant.price)}
+                      </span>{" "}
+                      <span className="text-red-500">
+                        {formatIDR(
+                          getPromoPrice(
+                            lowestPriceVariant.price,
+                            lowestPriceVariant.promo.discount
+                          )
+                        )}
+                      </span>
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-300 text-base font-bold">
+                      Promo hingga {" "}
+                      {formatDate(lowestPriceVariant.promo.expiryDate)}
+                    </p>
+                  </div>
+                ) : (
+                  lowestPriceVariant && (
+                    <p className="text-gray-800 dark:text-gray-100 text-base font-bold">
+                      Mulai Dari {formatIDR(lowestPriceVariant.price)}
+                    </p>
+                  )
+                )}
+              </div>
             </Card>
           </div>
         );
@@ -113,7 +144,7 @@ export const Card = ({ className, children }) => {
 
 export const CardTitle = ({ className, children }) => {
   return (
-    <h4 className={cn(" font-bold tracking-wide mt-4", className)}>
+    <h4 className={cn(" font-bold tracking-wide mt-4 text-lg", className)}>
       {children}
     </h4>
   );

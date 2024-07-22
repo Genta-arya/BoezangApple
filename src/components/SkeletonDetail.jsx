@@ -8,7 +8,7 @@ const SkeletonDetailProduk = () => {
           <div className="bg-gray-300 h-96 w-96 mb-4"></div>
         </div>
 
-        <div className="lg:max-w-xl md:w-full border py- lg:px-8 md:px-5 px-4 rounded-lg pt-8">
+        <div className="lg:max-w-xl md:w-full  py- lg:px-8 md:px-5 px-4 rounded-lg pt-8">
           <div className="bg-gray-300 h-8 w-3/4 mb-4"></div>
           <div className="bg-gray-300 h-4 w-full mb-4"></div>
           <div className="bg-gray-300 h-4 w-5/6 mb-4"></div>
