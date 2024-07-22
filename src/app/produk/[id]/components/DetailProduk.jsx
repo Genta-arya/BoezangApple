@@ -163,7 +163,7 @@ const DetailProduk = () => {
               alt={products.name}
               width={384}
               height={384}
-              className="rounded-lg lg:shadow-lg lg:border lg:w-96 lg:h-96 md:w-96 md:h-96 lg:border-gray-300"
+              className="rounded-lg lg:shadow-lg  lg:w-96 lg:h-96 md:w-96 md:h-96 "
             />
           </div>
 
