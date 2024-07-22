@@ -159,7 +159,7 @@ const DetailProduk = () => {
   };
 
   return (
-    <div className="p-4 w-full bg-white pt-12">
+    <div className="p-4 w-full bg-white pt-36">
       {products ? (
         <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-8 md:gap-4 ">
           {/* Gambar Produk */}

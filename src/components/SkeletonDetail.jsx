@@ -4,7 +4,7 @@ import React from "react";
 
 const SkeletonDetailProduk = () => {
   return (
-    <div className="p-4 w-full bg-white">
+    <div className="p-4 w-full bg-white pt-32">
       <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-12 md:gap-4 animate-pulse">
         <div className="flex justify-center">
           <div className="bg-gray-200 h-96 w-96 mb-4"></div>

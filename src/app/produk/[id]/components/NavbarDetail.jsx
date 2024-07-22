@@ -13,7 +13,7 @@ const NavbarDetail = () => {
   };
 
   return (
-    <header className="bg-black text-white p-6 flex items-center justify-between">
+    <header className="bg-black text-white p-6 flex items-center justify-between fixed w-full z-50">
       <button
         onClick={handleBack}
         className="flex items-center text-white gap-4 lg:pl-28"

@@ -5,6 +5,7 @@ import DetailProduk from "./components/DetailProduk";
 import Footer from "@/components/Footer";
 import productImage from "@/assets/dummy.png";
 import HarusKami from "@/components/HarusKami";
+import ScrollToTop from "./components/ScrollOntop";
 export async function generateMetadata({ params }) {
   const { id } = params;
   try {
@@ -50,9 +51,9 @@ const PageDetail = () => {
   return (
     <main>
       <NavbarDetail />
-   
-        <DetailProduk />
-     
+
+      <DetailProduk />
+      <ScrollToTop />
 
       <Footer />
     </main>
