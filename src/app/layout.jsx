@@ -2,10 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"], // Tambahkan bobot yang Anda butuhkan
-});
+
 
 export const metadata = {
   title: "Boezang Apple",
@@ -21,7 +18,7 @@ export default function RootLayout({ children }) {
           href="https://boezang-apple-development.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.e16eee5c.png&w=256&q=75"
         />
       </Head>
-      <body className={roboto.className}>{children}</body>
+      <body >{children}</body>
     </html>
   );
 }
