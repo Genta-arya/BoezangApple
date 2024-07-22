@@ -16,10 +16,10 @@ const NavbarDetail = () => {
     <header className="bg-black text-white p-6 flex items-center justify-between fixed w-full z-50">
       <button
         onClick={handleBack}
-        className="flex items-center text-white gap-4 w-full pl-8"
+        className="flex items-center text-white gap-4 w-full lg:pl-8 pl-2 md:pl-8"
       >
-        <FaArrowLeft className="text-xl" />
-        <p className="font-bold lg:ml-4">Detail Produk</p>
+        <FaArrowLeft className="text-lg" />
+        <p className="font-bold ml-3 ">Detail Produk</p>
       </button>
     </header>
   );
