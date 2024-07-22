@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
         description: `Detail lengkap tentang produk ${data.data.name}. Temukan fitur, harga, dan informasi lainnya.`,
         images: [
           {
-            url: "/dummy.png",
+            url: `${data.imageUrl}`,
 
             alt: `${data.data.name} - Boezang Apple`,
           },
