@@ -36,7 +36,7 @@ const HarusKami = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const router = usePathname();
 
-  console.log(router)
+  
   const isRootPath = router === "/";
 
 
@@ -51,11 +51,7 @@ const HarusKami = () => {
       }`}
     >
       <div className="flex justify-center flex-col items-center">
-        <div className="flex mb-4">
-          {[...Array(5)].map((_, i) => (
-            <FaStar key={i} className="text-yellow-400" />
-          ))}
-        </div>
+       
         <h2 className="text-2xl font-bold ">MENGAPA HARUS</h2>
         <h2 className="text-2xl md:text-3xl font-bold md:mb-12 lg:mb-12 mb-8 text-gray-400 ">
           DIBOEZANG APPLE STORE

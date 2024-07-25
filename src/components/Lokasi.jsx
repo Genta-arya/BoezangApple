@@ -10,38 +10,27 @@ import images2 from "@/assets/asset1.png";
 
 const Lokasi = () => {
   return (
-    <div className="dark:bg-black dark:text-white pt-12 bg-slate-100">
+    <div className="dark:bg-black dark:text-white pt-12 bg-slate-100 lg:px-32">
       <div className="pb-8">
         <Carousel
+          showStatus={false}
           showArrows={false}
           showThumbs={false}
           infiniteLoop={true}
-          showIndicators={false}
+          showIndicators={true}
           autoPlay={true}
-          interval={3000}
-          transitionTime={1000} 
+          interval={10000}
+          transitionTime={1000}
           swipeable={true}
           dynamicHeight={true}
           emulateTouch={true}
           useKeyboardArrows={true}
         >
           <div>
-            <Image 
-              src={images2} 
-              alt="Background 1" 
-              width={1200} 
-              height={800} 
-              layout="responsive" 
-            />
+            <Image src={images2} alt="Background 1" layout="responsive" className="" />
           </div>
           <div>
-            <Image 
-              src={images1} 
-              alt="Background 2" 
-              width={1200} 
-              height={800} 
-              layout="responsive" 
-            />
+            <Image src={images1} alt="Background 2" layout="responsive" />
           </div>
         </Carousel>
       </div>

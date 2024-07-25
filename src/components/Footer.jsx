@@ -37,12 +37,10 @@ const Footer = () => {
               <div className="flex justify-center">
                 <Image
                   src={icon}
-                  className="rounded-full mb-4 md:w-32 w-20 p-1 bg-white"
+                  className="   lg:w-96 md:w-72 w-52 rounded-md mb-8  p-1 bg-white"
                 />
               </div>
-              <h2 className="md:text-2xl text-lg font-bold mb-4 text-center">
-                BOEZANG APPLE
-              </h2>
+            
               <div className="flex justify-center mb-4">
                 <a
                   href="https://www.facebook.com/BoezangApple"

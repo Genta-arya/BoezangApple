@@ -17,9 +17,9 @@ const Navbar = ({ className }) => {
     <div className={` dark:bg-black shadow-lg dark:border-b dark:border-gray-800 z-50 ${className}`}>
       <div className="flex justify-between items-center p-4 mx-auto max-w-screen-lg">
         <div className="flex items-center gap-2">
-            <Image src={icon}  alt="boezang icon" className="w-8 rounded-full"/>
+            <Image src={icon}  alt="boezang icon" className="w-32 rounded-md border-2 border-white"/>
 
-        <h1 className="text-lg font-bold dark:text-white">Boezang Apple</h1>
+        
         </div>
         <button onClick={toggleSidebar} className="text-xl dark:text-white">
           <FaBars />
