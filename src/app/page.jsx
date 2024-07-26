@@ -5,7 +5,6 @@ import FloatingCs from "@/components/FloatingCs";
 import Footer from "@/components/Footer";
 import HarusKami from "@/components/HarusKami";
 import { Header } from "@/components/Header";
-import Lokasi from "@/components/Lokasi";
 
 import Navbar from "@/components/MobileNavbar";
 
@@ -13,7 +12,7 @@ import { NavbarDemo } from "@/components/Navbar";
 import Product from "@/components/Product";
 import { CardStack } from "@/components/ui/Card-Stack";
 
-import React, { useEffect } from "react";
+import React from "react";
 
 const page = () => {
   return (

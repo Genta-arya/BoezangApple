@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaChevronUp, FaStar } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
+import ServiceBnner from "./ServiceBnner";
 
 const faqData = [
   {
@@ -81,6 +82,7 @@ const HarusKami = () => {
           </AnimatePresence>
         </div>
       ))}
+    
     </div>
   );
 };

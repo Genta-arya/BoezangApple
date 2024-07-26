@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.boezangapple.com",
+        port: "",
+        pathname: "/Images/**",
+      },
+    ],
     domains: [
       "assets.aceternity.com",
       "encrypted-tbn0.gstatic.com",
