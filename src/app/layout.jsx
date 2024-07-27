@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" className="dark">
       <Head>
-    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVZKXGQEEF"></script>
 
         <script
           dangerouslySetInnerHTML={{
