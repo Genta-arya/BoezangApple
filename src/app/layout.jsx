@@ -48,10 +48,10 @@ export default function RootLayout({ children }) {
           href="https://www.googletagmanager.com/gtm.js?id=G-BVZKXGQEEF"
           as="script"
         />
-        <GoogleAnalyticss />
-
-        <GoogleTagManager gtmId="G-BVZKXGQEEF" />
       </Head>
+      <GoogleAnalyticss />
+
+      <GoogleTagManager gtmId="G-BVZKXGQEEF" />
       <body>{children}</body>
     </html>
   );
