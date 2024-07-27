@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Slider from "react-slick";
 import Image from "next/image";
@@ -13,7 +13,6 @@ import { FaTimes } from "react-icons/fa";
 const PopUpModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(true); // Set to true to open modal on render
   const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
-  const sliderRef = useRef(null); // Create a ref for the slider
 
   const closeModal = () => {
     setModalIsOpen(false);
@@ -37,9 +36,8 @@ const PopUpModal = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
-    afterChange: (current) => setCurrentSlide(current),
-    ref: sliderRef,
+    arrows: true, // Disable arrows
+    beforeChange: (current, next) => setCurrentSlide(next),
   };
 
   const promos = [
@@ -74,7 +72,7 @@ const PopUpModal = () => {
               >
                 <FaTimes />
               </button>
-              <Slider {...settings} ref={sliderRef}>
+              <Slider {...settings}>
                 {promos.map((promo, index) => (
                   <div key={index} className="text-center">
                     <Image
@@ -86,20 +84,18 @@ const PopUpModal = () => {
                 ))}
               </Slider>
               <div className="flex justify-center mt-3">
-                <div className="flex justify-center bg-white w-fit py-1 px-4 rounded-md">
-                  {promos.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`w-5 h-2 mx-1 rounded-full ${
-                        currentSlide === index ? "bg-gray-800" : "bg-gray-400"
-                      }`}
-                      onClick={() => {
-                        setCurrentSlide(index);
-                        sliderRef.current.slickGoTo(index);
-                      }}
-                    />
-                  ))}
-                </div>
+                {promos.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-3 h-3 mx-1 rounded-full ${
+                      currentSlide === index ? "bg-gray-800" : "bg-gray-400"
+                    }`}
+                    onClick={() => {
+                      setCurrentSlide(index);
+                      document.querySelector('.slick-slider').slickGoTo(index);
+                    }}
+                  />
+                ))}
               </div>
             </motion.div>
           </motion.div>
