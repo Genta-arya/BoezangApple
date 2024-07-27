@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Slider from "react-slick";
 import Image from "next/image";
@@ -13,7 +13,7 @@ import { FaTimes } from "react-icons/fa";
 const PopUpModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(true); // Set to true to open modal on render
   const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
-  const sliderRef = React.useRef(null); // Create a ref for the slider
+  const sliderRef = useRef(null); // Create a ref for the slider
 
   const closeModal = () => {
     setModalIsOpen(false);
