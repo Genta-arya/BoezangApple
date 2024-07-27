@@ -1,6 +1,7 @@
 import "./globals.css";
 import Head from "next/head";
-
+import { GoogleTagManager } from "@next/third-parties/google";
+import GoogleAnalyticss from "./Analytic";
 export const metadata = {
   title: "Boezang Apple",
   description:
@@ -42,7 +43,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" className="dark">
       <Head>
-     
+        <GoogleAnalyticss />
+
+        <GoogleTagManager gtmId="G-BVZKXGQEEF" />
       </Head>
       <body>{children}</body>
     </html>
