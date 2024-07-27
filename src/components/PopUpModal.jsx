@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Slider from "react-slick";
@@ -11,6 +13,7 @@ import { FaTimes } from "react-icons/fa";
 const PopUpModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(true); // Set to true to open modal on render
   const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
+  const sliderRef = React.useRef(null); // Create a ref for the slider
 
   const closeModal = () => {
     setModalIsOpen(false);
@@ -36,6 +39,7 @@ const PopUpModal = () => {
     slidesToScroll: 1,
     arrows: false,
     afterChange: (current) => setCurrentSlide(current),
+    ref: sliderRef,
   };
 
   const promos = [
@@ -47,14 +51,6 @@ const PopUpModal = () => {
     },
     // Tambahkan promo lain jika perlu
   ];
-
-  const goToNextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % promos.length);
-  };
-
-  const goToPrevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + promos.length) % promos.length);
-  };
 
   return (
     <div>
@@ -78,7 +74,7 @@ const PopUpModal = () => {
               >
                 <FaTimes />
               </button>
-              <Slider {...settings} initialSlide={currentSlide}>
+              <Slider {...settings} ref={sliderRef}>
                 {promos.map((promo, index) => (
                   <div key={index} className="text-center">
                     <Image
@@ -89,7 +85,6 @@ const PopUpModal = () => {
                   </div>
                 ))}
               </Slider>
-             
               <div className="flex justify-center mt-3">
                 <div className="flex justify-center bg-white w-fit py-1 px-4 rounded-md">
                   {promos.map((_, index) => (
@@ -98,7 +93,10 @@ const PopUpModal = () => {
                       className={`w-5 h-2 mx-1 rounded-full ${
                         currentSlide === index ? "bg-gray-800" : "bg-gray-400"
                       }`}
-                      onClick={() => setCurrentSlide(index)}
+                      onClick={() => {
+                        setCurrentSlide(index);
+                        sliderRef.current.slickGoTo(index);
+                      }}
                     />
                   ))}
                 </div>
