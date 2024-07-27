@@ -83,20 +83,7 @@ const PopUpModal = () => {
                   </div>
                 ))}
               </Slider>
-              <div className="flex justify-center mt-3">
-                {promos.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-3 h-3 mx-1 rounded-full ${
-                      currentSlide === index ? "bg-gray-800" : "bg-gray-400"
-                    }`}
-                    onClick={() => {
-                      setCurrentSlide(index);
-                      document.querySelector('.slick-slider').slickGoTo(index);
-                    }}
-                  />
-                ))}
-              </div>
+              
             </motion.div>
           </motion.div>
         )}
