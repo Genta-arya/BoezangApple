@@ -43,6 +43,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" className="dark">
       <Head>
+    
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BVZKXGQEEF');
+          `,
+          }}
+        />
         <GoogleAnalyticss />
 
         <GoogleTagManager gtmId="G-BVZKXGQEEF" />
