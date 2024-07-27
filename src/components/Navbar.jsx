@@ -32,7 +32,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
   const [active, setActive] = useState(null);
 
   return (
-    <div className="flex justify-between items-center w-full bg-gray-100  shadow-none md:px-12 mx-auto border-b dark:border-b dark:border-gray-500 dark:text-white dark:bg-black">
+    <div className="flex justify-between items-center w-full lg:px-32 bg-gray-100  shadow-none md:px-12 mx-auto border-b dark:border-b dark:border-gray-500 dark:text-white dark:bg-black">
       <div>
         <Image
           src={icon}
@@ -42,7 +42,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
       </div>
 
       <div
-        className={cn("z-50 rounded-md flex gap-24  w-full  justify-center ")}
+        className={cn("z-50 rounded-md flex  w-full  justify-center lg:pr-32 ")}
       >
         <Menu setActive={setActive}>
           <MenuItem setActive={setActive} active={active} item="Layanan">

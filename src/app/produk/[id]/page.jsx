@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
   try {
     const data = await GetSingleProduct(id);
     return {
-      title: `Jual ${data.data.name} | Boezang Apple Store Ketapang`, // Title halaman
+      title: `Jual ${data.data.name} - Boezang Apple Store Ketapang`, // Title halaman
       description: `${data.data.name}. Lihat Sekarang`,
       keywords: `Jual Produk ${data.data.name} Boezang Apple Store Ketapang`,
       openGraph: {
