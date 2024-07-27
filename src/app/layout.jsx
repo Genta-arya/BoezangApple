@@ -43,7 +43,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" className="dark">
       <Head>
-        
+        <link
+          rel="preload"
+          href="https://www.googletagmanager.com/gtm.js?id=G-BVZKXGQEEF"
+          as="script"
+        />
         <GoogleAnalyticss />
 
         <GoogleTagManager gtmId="G-BVZKXGQEEF" />
