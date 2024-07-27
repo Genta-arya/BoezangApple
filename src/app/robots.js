@@ -1,8 +1,7 @@
-// src/app/robots.js
-export const runtime = "edge";
+
 
 export default async function robots() {
-    const baseUrl = "https://boezangapple.com"; // Ganti dengan URL situs Anda
+    const baseUrl = "https://boezangapple.com"; 
 
     return {
         rules: [

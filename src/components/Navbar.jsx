@@ -33,7 +33,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
   return (
     <div className="flex justify-between items-center w-full bg-gray-100  shadow-none md:px-12 mx-auto border-b dark:border-b dark:border-gray-500 dark:text-white dark:bg-black">
       <div>
-        <Image src={icon} className="lg:w-36 md:w-36 bg-red-500 rounded-lg border-2 border-white" />
+        <Image src={icon} alt="boezang apple ketapang" className="lg:w-36 md:w-36 bg-red-500 rounded-lg border-2 border-white" />
       </div>
 
       <div className={cn("z-50 rounded-md flex gap-24  w-full  justify-center lg:-ml-40 md:-ml-28")}>

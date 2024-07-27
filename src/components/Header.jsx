@@ -30,7 +30,7 @@ export function Header() {
         <div className="text-3xl  md:-mt-32  -mt-24 lg:-mt-7 md:text-6xl font-bold dark:text-white text-center mb-4">
           <p className="lg:text-5xl">MakeYourChoice Apple Gadget</p>
         </div>
-        <Image src={icon} className="rounded-lg lg:w-[40%] md:w-auto shadow-2xl border" />
+        <Image src={icon} alt="boezang apple ketapang" className="rounded-lg lg:w-[40%] md:w-auto shadow-2xl border" />
         <div className="font-extralight text-center text-base dark:text-neutral-200 py-4">
           <div className="flex flex-col gap-4">
           

@@ -11,7 +11,7 @@ import SkeletonLoading from "@/components/SkeletonLoading";
 
 const MainKatalog = () => {
   const searchParams = useSearchParams();
-  const router = useRouter();
+
   const { kategori, setKategori } = useKategoriStore((state) => ({
     kategori: state.kategori,
     setKategori: state.setKategori,

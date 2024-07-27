@@ -14,7 +14,7 @@ const ModalOrder = ({
   return (
     <div className="bg-black  p-8 rounded-lg shadow-xl md:max-w-xl lg:max-w-xl max-w-[90%] w-full text-white">
       <div className="flex justify-center">
-        <Image src={icon} className="w-32  rounded-full pb-12" />
+        <Image src={icon} className="w-32  rounded-full pb-12" alt="boezang icon" />
       </div>
 
       <form onSubmit={handleSubmit} className="">
