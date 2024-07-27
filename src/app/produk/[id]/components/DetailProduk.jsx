@@ -15,7 +15,8 @@ import Spesifikas from "./Spesifikas";
 import HarusKami from "@/components/HarusKami";
 import ShareProduct from "./ShareProduct";
 import AvaibleStock from "./Avaible";
-
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 export const DataColor = [
   { name: "Black", hex: "#000000" },
   { name: "White", hex: "#FFFFFF" },
@@ -61,8 +62,8 @@ const DetailProduk = () => {
   const { products, setProducts } = useSingleProductStore();
   useEffect(() => {
     // Scroll to the top when the component mounts
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []); 
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -164,18 +165,36 @@ const DetailProduk = () => {
         <div className="flex justify-center md:flex-col lg:flex-row flex-col gap-4 lg:gap-4 md:gap-4 ">
           {/* Gambar Produk */}
           <div className="flex justify-center">
-            <Image
-              src={products.imageUrl}
-              alt={products.name}
-              width={384}
-              height={384}
-              className="rounded-lg  lg:w-96 lg:h-96 md:w-96 md:h-96 "
-            />
+            <Carousel
+              className="w-96"
+              showStatus={false}
+              showArrows={true}
+              showThumbs={true} // Menampilkan thumbnail
+              infiniteLoop={true}
+              showIndicators={true}
+              autoPlay={true}
+              interval={10000}
+              transitionTime={1000}
+              swipeable={true}
+              dynamicHeight={true}
+              emulateTouch={true}
+              useKeyboardArrows={true}
+            >
+              {/* Gambar Utama (dari data produk) */}
+
+              <div className="">
+                <img
+                  src={products.imageUrl}
+                  alt={products.name}
+                  className=" rounded-lg"
+                />
+              </div>
+            </Carousel>
           </div>
 
           {/* Detail Produk */}
           <div className="lg:max-w-[35%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8 ">
-            <h1  className="lg:text-3xl font-extrabold text-[#555555] md:text-[28px] text-xl pb-3 ">
+            <h1 className="lg:text-4xl font-extrabold text-[#555555] md:text-[28px] text-xl pb-3 mb-4 ">
               {products.name}{" "}
               {isIphoneCategory && selectedCapacity && `${selectedCapacity} GB`}
               {formData.color && ` , ${colorName}`}
@@ -223,7 +242,7 @@ const DetailProduk = () => {
                         selectedCapacity === variant.kapasitas.toString()
                           ? "bg-blue-800 text-white scale-110 "
                           : "text-black border"
-                      } hover:bg-slate-100 hover:text-black transition-all`}
+                      }  transition-all`}
                     >
                       {variant.kapasitas} GB
                     </button>
@@ -249,7 +268,7 @@ const DetailProduk = () => {
             {selectedVariant?.promo ? (
               <div className="text-red-500 lg:text-2xl md:text-xl text-xl font-semibold mb-8">
                 {/* Original Price */}
-                <p className="text-green-600 text-center">
+                <p className="text-black font-bold text-center">
                   {formatIDR(
                     selectedVariant.price -
                       (selectedVariant.price * selectedVariant.promo.discount) /
@@ -270,14 +289,30 @@ const DetailProduk = () => {
                 </p>
               </div>
             ) : (
-              <p className="lg:text-2xl md:text-xl text-xl font-semibold text-green-600 mb-4 text-center">
+              <h1 className="lg:text-3xl md:text-xl text-xl  text-gray-600 font-bold  mb-4 text-center">
                 {formatIDR(selectedVariant?.price || 0)}
-              </p>
+              </h1>
             )}
+            <div className="flex items-center justify-center mb-4 gap-6">
+              <button
+                disabled
+                className="flex items-center justify-center "
+              >
+                <span className="text-lg">-</span>
+              </button>
+              <span className="mx-4 text-lg border w-28 text-center">1</span>{" "}
+            
+              <button
+                disabled
+                className="flex items-center justify-center "
+              >
+                <span className="text-lg">+</span>
+              </button>
+            </div>
 
             <button
               onClick={handleSubmit}
-              className="bg-black border font-bold hover:scale-95 duration-300 ease-in text-white px-6 py-2 rounded w-full hover:bg-opacity-50 transition-all text-sm lg:text-base md:text-base"
+              className="bg-black border font-bold duration-300 ease-in text-white px-6 py-2 rounded w-full hover:bg-opacity-80 transition-all text-sm lg:text-base md:text-base"
             >
               <div className="flex items-center gap-2 lg:text-lg justify-center">
                 <FaWhatsapp size={24} />

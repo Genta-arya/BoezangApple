@@ -2,20 +2,34 @@
 
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Slider from "react-slick";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // import carousel styles
 import Image from "next/image";
 import promo1 from "@/assets/promo1.png";
 import promo2 from "@/assets/promo2.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { FaTimes } from "react-icons/fa";
+
+const slides = [
+  {
+    id: 1,
+    image: promo1,
+  },
+  {
+    id: 2,
+    image: promo2,
+  },
+];
 
 const PopUpModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(true); // Set to true to open modal on render
-  const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
+  const [currentSlide, setCurrentSlide] = useState(0); // Track current slide index
 
   const closeModal = () => {
     setModalIsOpen(false);
+  };
+
+  const handleThumbnailClick = (index) => {
+    setCurrentSlide(index); // Set current slide to clicked thumbnail
   };
 
   useEffect(() => {
@@ -29,26 +43,6 @@ const PopUpModal = () => {
       document.body.style.overflow = "auto"; // Clean up on unmount
     };
   }, [modalIsOpen]);
-
-  const settings = {
-    dots: false, // Disable default dots
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true, // Disable arrows
-    beforeChange: (current, next) => setCurrentSlide(next),
-  };
-
-  const promos = [
-    {
-      image: promo1,
-    },
-    {
-      image: promo2,
-    },
-    // Tambahkan promo lain jika perlu
-  ];
 
   return (
     <div>
@@ -68,22 +62,38 @@ const PopUpModal = () => {
             >
               <button
                 onClick={closeModal}
-                className="text-white -translate-x-3 -translate-y-2"
+                className="text-white "
               >
                 <FaTimes />
               </button>
-              <Slider {...settings}>
-                {promos.map((promo, index) => (
-                  <div key={index} className="text-center">
+              <Carousel
+                selectedItem={currentSlide}
+                onChange={(index) => setCurrentSlide(index)} // Update current slide index on change
+                showStatus={false}
+                showArrows={false}
+                showThumbs={false}
+                infiniteLoop={true}
+                showIndicators={true}
+                autoPlay={true}
+                interval={10000}
+                transitionTime={1000}
+                swipeable={true}
+                dynamicHeight={true}
+                emulateTouch={true}
+                useKeyboardArrows={true}
+                className="rounded-lg"
+              >
+                {slides.map((slide) => (
+                  <div key={slide.id}>
                     <Image
-                      src={promo.image}
-                      alt={`Promo ${index + 1}`}
-                      className="mx-auto rounded-lg w-full h-full"
+                      src={slide.image}
+                      alt={`Promo ${slide.id}`}
+                      className="mx-auto rounded-lg"
                     />
                   </div>
                 ))}
-              </Slider>
-              
+              </Carousel>
+             
             </motion.div>
           </motion.div>
         )}
