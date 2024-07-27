@@ -11,6 +11,7 @@ import { FaTimes } from "react-icons/fa";
 const PopUpModal = () => {
   const [modalIsOpen, setModalIsOpen] = useState(true); // Set to true to open modal on render
   const [currentSlide, setCurrentSlide] = useState(0); // Track the current slide index
+  const [loading, setLoading] = useState(true); // Track loading state
   const sliderRef = React.useRef(null); // Create a ref for the slider
 
   const closeModal = () => {
@@ -36,8 +37,8 @@ const PopUpModal = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    afterChange: (current) => setCurrentSlide(current), 
-    ref: sliderRef, 
+    afterChange: (current) => setCurrentSlide(current),
+    ref: sliderRef,
   };
 
   const promos = [
@@ -47,7 +48,7 @@ const PopUpModal = () => {
     {
       image: promo2,
     },
-
+    // Tambahkan promo lain jika perlu
   ];
 
   return (
@@ -75,10 +76,17 @@ const PopUpModal = () => {
               <Slider {...settings} ref={sliderRef}>
                 {promos.map((promo, index) => (
                   <div key={index} className="text-center">
+                    {loading && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="loader">Loading...</div> {/* Ganti ini dengan spinner yang Anda inginkan */}
+                      </div>
+                    )}
                     <Image
                       src={promo.image}
                       alt={`Promo ${index + 1}`}
                       className="mx-auto rounded-lg w-full h-full"
+                      onLoad={() => setLoading(false)} // Set loading to false when the image is loaded
+                      onError={() => setLoading(false)} // Set loading to false if there's an error
                     />
                   </div>
                 ))}

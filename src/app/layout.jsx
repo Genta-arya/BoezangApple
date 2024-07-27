@@ -1,7 +1,5 @@
-
 import "./globals.css";
 import Head from "next/head";
-
 
 export const metadata = {
   title: "Boezang Apple",
@@ -11,6 +9,7 @@ export const metadata = {
     "Toko iPhone Ketapang, Apple Store ketapang, Store Iphone Ketapang, Ketapang Gadget, Kalimantan Barat, Iphone Second Ketapang, service center Iphone Ketapang",
   author: "Yogi",
   robots: "index, follow",
+
   openGraph: {
     title: "Boezang Apple Store | Ketapang Kalimantan Barat",
     description:
@@ -18,7 +17,7 @@ export const metadata = {
     url: "https://boezangapple.com",
     images: [
       {
-        url: 'https://boezangapple.com/icon.png',
+        url: "https://boezangapple.com/icon.png",
 
         alt: `Boezang Apple Store | Ketapang Kalimantan Barat`,
       },
@@ -43,10 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" className="dark">
       <Head>
-        <link
-          rel="icon"
-          href="https://admin.boezangapple.com/assets/icon-BfWiqzZ9.png"
-        />
+     
       </Head>
       <body>{children}</body>
     </html>

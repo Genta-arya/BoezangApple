@@ -14,6 +14,7 @@ const nextConfig = {
       "encrypted-tbn0.gstatic.com",
       "placehold.co",
       "via.placeholder.com",
+      "firebasestorage.googleapis.com",
       "localhost",
       "boezangapi.hkks.shop",
     ],
