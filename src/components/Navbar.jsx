@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaMapMarkerAlt,
   FaMoon,
+  FaSearch,
   FaSun,
   FaTiktok,
   FaWhatsapp,
@@ -33,10 +34,16 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
   return (
     <div className="flex justify-between items-center w-full bg-gray-100  shadow-none md:px-12 mx-auto border-b dark:border-b dark:border-gray-500 dark:text-white dark:bg-black">
       <div>
-        <Image src={icon} alt="boezang apple ketapang" className="lg:w-36 md:w-36 bg-red-500 rounded-lg border-2 border-white" />
+        <Image
+          src={icon}
+          alt="boezang apple ketapang"
+          className="lg:w-36 md:w-36 bg-red-500 rounded-lg border-2 border-white"
+        />
       </div>
 
-      <div className={cn("z-50 rounded-md flex gap-24  w-full  justify-center lg:-ml-40 md:-ml-28")}>
+      <div
+        className={cn("z-50 rounded-md flex gap-24  w-full  justify-center ")}
+      >
         <Menu setActive={setActive}>
           <MenuItem setActive={setActive} active={active} item="Layanan">
             <div className="text-sm grid grid-cols-2 gap-10 p-4 pl-8">
@@ -107,7 +114,9 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
         </Menu>
       </div>
 
-      <div></div>
+      <div className="cursor-pointer hover:bg-opacity-60 transition-all ">
+       <FaSearch />
+      </div>
     </div>
   );
 }

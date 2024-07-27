@@ -16,9 +16,11 @@ export default function Icon() {
     (
       // ImageResponse JSX element
       <img
-        src={"https://api.hkks.shop/uploads/image-(1)-1721129887319.png"}
+        src={"https://api.hkks.shop/uploads/image-(2)-1722119497402.png"}
         alt="Icon"
-        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        sizes="32x32"
+        width={size.width}
+        height={size.height}
       />
     ),
     {

@@ -6,13 +6,13 @@ import { FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
 const ShareProduct = () => {
   const { products } = useSingleProductStore(); // Ambil produk dari Zustand store
   const handleShareWhatsApp = () => {
-    const message = `Hai, cek produk ini: ${products.name} - ${window.location.href}`;
+    const message = `Lihat Produk ini ${products.name} - ${window.location.href}`;
     const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
   const handleShareFacebook = () => {
-    const message = `Cek produk ini: ${products.name}`;
+    const message = `Lihat Produk ini ${products.name}`;
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
       window.location.href
     )}&quote=${encodeURIComponent(message)}`;
@@ -20,7 +20,7 @@ const ShareProduct = () => {
   };
 
   const handleShareTwitter = () => {
-    const message = `Cek produk ini: ${products.name} ${window.location.href}`;
+    const message = `Lihat Produk ini ${products.name} ${window.location.href}`;
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       message
     )}`;

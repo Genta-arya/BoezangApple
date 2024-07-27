@@ -16,6 +16,7 @@ const nextConfig = {
       "via.placeholder.com",
       "firebasestorage.googleapis.com",
       "localhost",
+      "api.hkks.shop",
       "boezangapi.hkks.shop",
     ],
   },

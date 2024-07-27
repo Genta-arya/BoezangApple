@@ -3,16 +3,16 @@ import Head from "next/head";
 import { GoogleTagManager } from "@next/third-parties/google";
 import GoogleAnalyticss from "./Analytic";
 export const metadata = {
-  title: "Boezang Apple",
+  title: "Boezang Apple Store - Ketapang Kalimantan Barat",
   description:
     "Store iPhone Pertama di Ketapang Kalimantan Barat, yang menjual produk iPhone second dan baru dan selain itu bisa melayani Service Center iPhone atau Produk Apple.",
   keywords:
-    "Toko iPhone Ketapang, Apple Store ketapang, Store Iphone Ketapang, Ketapang Gadget, Kalimantan Barat, Iphone Second Ketapang, service center Iphone Ketapang",
+    "Toko iPhone Ketapang, Apple Store ketapang, Store Iphone Ketapang, Ketapang Gadget, Kalimantan Barat, Iphone Second Ketapang, service center Iphone Ketapang , iphone Ketapang",
   author: "Yogi",
   robots: "index, follow",
 
   openGraph: {
-    title: "Boezang Apple Store | Ketapang Kalimantan Barat",
+    title: "Boezang Apple Store - Ketapang Kalimantan Barat",
     description:
       "Store iPhone Pertama di Ketapang Kalimantan Barat, yang menjual produk iPhone second dan baru dan selain itu bisa melayani Service Center iPhone atau Produk Apple.",
     url: "https://boezangapple.com",
@@ -20,21 +20,21 @@ export const metadata = {
       {
         url: "https://boezangapple.com/icon.png",
 
-        alt: `Boezang Apple Store | Ketapang Kalimantan Barat`,
+        alt: `Boezang Apple Store - Ketapang Kalimantan Barat`,
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Boezang Apple Store | Ketapang Kalimantan Barat",
+    title: "Boezang Apple Store - Ketapang Kalimantan Barat",
     description:
       "Store iPhone Pertama di Ketapang Kalimantan Barat, yang menjual produk iPhone second dan baru dan selain itu bisa melayani Service Center iPhone atau Produk Apple.",
     images: [
       {
         url: `https://boezangapple.com/icon.png`,
 
-        alt: `Boezang Apple Store | Ketapang Kalimantan Barat`,
+        alt: `Boezang Apple Store - Ketapang Kalimantan Barat`,
       },
     ],
   },

@@ -12,10 +12,10 @@ export async function generateMetadata({ params }) {
     const data = await GetSingleProduct(id);
     return {
       title: `Jual ${data.data.name} | Boezang Apple Store Ketapang`, // Title halaman
-      description: `Detail lengkap  ${data.data.name}. Lihat Sekarang`,
+      description: `${data.data.name}. Lihat Sekarang`,
       keywords: `Jual Produk ${data.data.name} Boezang Apple Store Ketapang`,
       openGraph: {
-        title: `Jual ${data.data.name} | Boezang Apple Store Ketapang`,
+        title: `${data.data.name} | Boezang Apple Store Ketapang`,
         description: `Detail lengkap  ${data.data.name}. Lihat Sekarang.`,
         images: [
           {

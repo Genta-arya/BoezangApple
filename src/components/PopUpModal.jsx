@@ -74,7 +74,7 @@ const PopUpModal = () => {
                 showThumbs={false}
                 infiniteLoop={true}
                 showIndicators={true}
-                autoPlay={true}
+                autoPlay={false}
                 interval={10000}
                 transitionTime={1000}
                 swipeable={true}
