@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "api.boezangapple.com",
+        hostname: "boezangapi.hkks.shop",
         port: "",
         pathname: "/Images/**",
       },
