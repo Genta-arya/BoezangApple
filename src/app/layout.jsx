@@ -18,7 +18,7 @@ export const metadata = {
     url: "https://boezangapple.com",
     images: [
       {
-        url: "https://boezangapple.com/icon.png",
+        url: "https://boezangapple.com/ogimage.png",
 
         alt: `Boezang Apple Store - Ketapang Kalimantan Barat`,
       },
@@ -32,7 +32,7 @@ export const metadata = {
       "Store iPhone Pertama di Ketapang Kalimantan Barat, yang menjual produk iPhone second dan baru dan selain itu bisa melayani Service Center iPhone atau Produk Apple.",
     images: [
       {
-        url: `https://boezangapple.com/icon.png`,
+        url: `https://boezangapple.com/ogimage.png`,
 
         alt: `Boezang Apple Store - Ketapang Kalimantan Barat`,
       },
