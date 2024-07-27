@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 export function Header() {
   const word =
-    "Hadir untuk menyempurnakan kebutuhan gadget anda dan memberikan pelayanan terbaik serta memberikan kualitas produk asli resmi";
+    "Memberikan pelayanan terbaik serta memberikan kualitas produk murah berkualitas";
 
     
 

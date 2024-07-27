@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import Navbar from "@/components/MobileNavbar";
 
 import { NavbarDemo } from "@/components/Navbar";
+import PopUpModal from "@/components/PopUpModal";
 import Product from "@/components/Product";
 import { CardStack } from "@/components/ui/Card-Stack";
 
@@ -38,6 +39,7 @@ const page = () => {
       </div>
       <Footer />
       <FloatingCs />
+      <PopUpModal />
     </main>
   );
 };

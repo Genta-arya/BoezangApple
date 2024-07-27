@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
       <Head>
         <link
           rel="icon"
-          href="https://boezang-apple-development.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ficon.e16eee5c.png&w=256&q=75"
+          href="https://admin.boezangapple.com/assets/icon-BfWiqzZ9.png"
         />
       </Head>
       <body>{children}</body>

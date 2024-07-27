@@ -13,6 +13,7 @@ const nextConfig = {
       "assets.aceternity.com",
       "encrypted-tbn0.gstatic.com",
       "placehold.co",
+      "via.placeholder.com",
       "localhost",
       "boezangapi.hkks.shop",
     ],

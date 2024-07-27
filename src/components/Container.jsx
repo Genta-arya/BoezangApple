@@ -17,7 +17,7 @@ const Container = () => {
       </div>
       <div className="lg:px-24 lg:pb-12">
         <div className="lg:hidden md:hidden block">
-          <ServiceBnner />
+       
           <Support />
           <Mitra />
           <Lokasi />

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-import Image from "next/image";
+
 
 export const runtime = "edge";
 
@@ -14,7 +14,7 @@ export const contentType = "image/png";
 export default function Icon() {
   return new ImageResponse(
     (
-      <Image
+      <img
         src={"https://admin.boezangapple.com/assets/icon-BfWiqzZ9.png"}
         alt="Icon"
         style={{ width: "100%", height: "100%", objectFit: "contain" }}
