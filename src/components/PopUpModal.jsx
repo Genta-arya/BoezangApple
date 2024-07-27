@@ -76,17 +76,12 @@ const PopUpModal = () => {
               <Slider {...settings} ref={sliderRef}>
                 {promos.map((promo, index) => (
                   <div key={index} className="text-center">
-                    {loading && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="loader">Loading...</div> {/* Ganti ini dengan spinner yang Anda inginkan */}
-                      </div>
-                    )}
+                  
                     <Image
                       src={promo.image}
                       alt={`Promo ${index + 1}`}
                       className="mx-auto rounded-lg w-full h-full"
-                      onLoad={() => setLoading(false)} // Set loading to false when the image is loaded
-                      onError={() => setLoading(false)} // Set loading to false if there's an error
+                   
                     />
                   </div>
                 ))}
