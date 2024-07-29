@@ -20,7 +20,7 @@ const ResultSearch = () => {
   const resultData = async () => {
     try {
       const response = await GetSearch(searchFilter);
-      setData(response.data); 
+      setData(response.data);
       setIsFound(response.data.length > 0); // Memeriksa apakah ada produk yang ditemukan
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -34,17 +34,24 @@ const ResultSearch = () => {
   useEffect(() => {
     resultData();
   }, []);
-
+  const truncateQuery = (query) => {
+    return query.length > 50 ? query.slice(0, 50) + "..." : query;
+  };
   if (loading) {
     return <SkeletonLoading />;
   }
 
   return (
     <div className=" w-full md:pt-12 text-white bg-black min-h-screen flex flex-col p-6 lg:px-24 ">
-      <p className="text-sm lg:text-xl md:text-lg text-start md:ml-4 lg:ml-4 ml-2 ">
+      <div className="text-sm lg:text-xl md:text-lg text-start md:ml-4 lg:ml-4 ml-2 flex flex-col ">
+        <p>
+
         Terkait Hasil{" "}
-        <span className=" text-white font-bold">{decodedQuery}</span>
-      </p>
+        </p>
+        <span className="text-white font-bold">
+          {truncateQuery(decodedQuery)}
+        </span>
+      </div>
 
       {isFound ? (
         <CardProductMobile products={data} />

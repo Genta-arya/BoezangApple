@@ -8,25 +8,25 @@ export default async function sitemap() {
     const productUrls = products.data.map(product => ({
         url: `${baseUrl}/produk/${product.id}`, 
         lastmod: product.updatedAt, 
-        priority: 0.5, // Atur prioritas sesuai kebutuhan, antara 0.0 dan 1.0
+        priority: 0.5, 
     }));
 
     return [
         {
             url: `${baseUrl}/`,
             lastmod: new Date().toISOString(),
-            priority: 1.0, // Halaman utama memiliki prioritas tertinggi
+            priority: 1.0, 
         },
         {
             url: `${baseUrl}/katalog?kategori=iphone`,
             lastmod: new Date().toISOString(),
-            priority: 0.8, // Prioritas untuk kategori iPhone
+            priority: 0.8, 
         },
         {
             url: `${baseUrl}/katalog?kategori=accessories`,
             lastmod: new Date().toISOString(),
-            priority: 0.7, // Prioritas untuk kategori accessories
+            priority: 0.7, 
         },
-        ...productUrls, // Gabungkan dengan URL produk
+        ...productUrls, 
     ];
 }
