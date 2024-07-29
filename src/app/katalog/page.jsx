@@ -66,7 +66,7 @@ const PageKatalog = () => {
   return (
     <main>
       <Suspense fallback={<div>Loading...</div>}>
-        <MainKatalog />
+        <MainKatalog  />
       </Suspense>
       <Footer />
     </main>

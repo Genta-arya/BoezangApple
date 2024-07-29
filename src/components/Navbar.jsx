@@ -14,6 +14,9 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import Link from "next/link";
+import SearchModal from "./SearchModal";
+import { AnimatePresence, motion } from "framer-motion";
+
 export function NavbarDemo() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -30,7 +33,14 @@ export function NavbarDemo() {
 
 function Navbar({ className, toggleDarkMode, darkMode }) {
   const [active, setActive] = useState(null);
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const openSearchModal = () => {
+    setIsSearchModalOpen(true);
+  };
 
+  const closeSearchModal = () => {
+    setIsSearchModalOpen(false);
+  };
   return (
     <div className="flex justify-between items-center w-full lg:px-32 bg-gray-100  shadow-none md:px-12 mx-auto border-b dark:border-b dark:border-gray-500 dark:text-white dark:bg-black">
       <div>
@@ -114,9 +124,24 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
         </Menu>
       </div>
 
-      <div className="cursor-pointer hover:bg-opacity-60 transition-all ">
-       <FaSearch />
+      <div
+        className="cursor-pointer hover:bg-opacity-60 transition-all "
+        onClick={() => setIsSearchModalOpen(!isSearchModalOpen)}
+      >
+        <FaSearch />
       </div>
+      <AnimatePresence>
+        {isSearchModalOpen && (
+          <motion.div
+           
+          >
+            <SearchModal
+              onClose={closeSearchModal}
+              isOpen={isSearchModalOpen}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
