@@ -15,7 +15,7 @@ export async function generateMetadata({ params }) {
       description: `${data.data.name}. Lihat Sekarang`,
       keywords: `Jual Produk ${data.data.name} Boezang Apple Store Ketapang`,
       openGraph: {
-        title: `${data.data.name} | Boezang Apple Store Ketapang`,
+        title: `${data.data.name} - Boezang Apple Store Ketapang`,
         description: `Detail lengkap  ${data.data.name}. Lihat Sekarang.`,
         images: [
           {
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
         description: "Halaman ini tidak dapat ditemukan.",
         images: [
           {
-            url: "/default-error-image.jpg",
+            url: "https://boezangapple.com/ogimage.png",
             width: 800,
             height: 600,
             alt: "Gambar Error",

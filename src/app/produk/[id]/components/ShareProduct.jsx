@@ -6,7 +6,7 @@ import { FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
 const ShareProduct = () => {
   const { products } = useSingleProductStore(); // Ambil produk dari Zustand store
   const handleShareWhatsApp = () => {
-    const message = `Lihat Produk ini ${products.name} - ${window.location.href}`;
+    const message = `Lihat Produk ini ${products.name} ${window.location.href}`;
     const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
