@@ -158,7 +158,10 @@ const DetailProduk = () => {
 
     window.location.href = whatsappUrl;
   };
-
+  const qualityMessage =
+    selectedVariant?.quality === true
+      ? "News"
+      : "Second";
   return (
     <div className="p-4 w-full bg-white pt-36">
       {products ? (
@@ -194,11 +197,18 @@ const DetailProduk = () => {
 
           {/* Detail Produk */}
           <div className="lg:max-w-[35%] md:w-full  lg:px-8 md:px-5 px-4 rounded-lg pt-8 ">
-            <h1 className="lg:text-4xl font-extrabold text-[#555555] md:text-[28px] text-xl pb-3 mb-4 ">
-              {products.name}{" "}
-              {isIphoneCategory && selectedCapacity && `${selectedCapacity} GB`}
-              {formData.color && ` , ${colorName}`}
-            </h1>
+            <div className="flex flex-col pb-3 mb-4">
+              <h1 className="lg:text-4xl font-extrabold text-[#555555] md:text-[28px] text-xl  ">
+                {products.name}{" "}
+                {isIphoneCategory &&
+                  selectedCapacity &&
+                  `${selectedCapacity} GB`}
+                {formData.color && ` , ${colorName}`}
+              </h1>
+              <div className="mt-4">
+                <p className="text-gray-600 font-semibold text-end">Quality {qualityMessage}</p>
+              </div>
+            </div>
 
             {/* Kapasitas Buttons */}
 
@@ -294,18 +304,11 @@ const DetailProduk = () => {
               </h1>
             )}
             <div className="flex items-center justify-center mb-4 gap-6">
-              <button
-                disabled
-                className="flex items-center justify-center "
-              >
+              <button disabled className="flex items-center justify-center ">
                 <span className="text-lg">-</span>
               </button>
               <span className="mx-4 text-lg border w-28 text-center">1</span>{" "}
-            
-              <button
-                disabled
-                className="flex items-center justify-center "
-              >
+              <button disabled className="flex items-center justify-center ">
                 <span className="text-lg">+</span>
               </button>
             </div>

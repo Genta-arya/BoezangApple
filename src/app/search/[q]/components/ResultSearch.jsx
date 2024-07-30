@@ -5,6 +5,7 @@ import SkeletonLoading from "@/components/SkeletonLoading";
 import { GetSearch } from "@/Service/Api/GetSearch";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const ResultSearch = () => {
   const { q } = useParams();
@@ -12,16 +13,16 @@ const ResultSearch = () => {
   const [isFound, setIsFound] = useState(true);
   const [loading, setLoading] = useState(true);
 
-  // Mengubah karakter '-' kembali menjadi spasi
+ 
   const searchFilter = q.replace(/-/g, " ");
-  // Menggunakan decodeURIComponent untuk mendekode query
+
   const decodedQuery = decodeURIComponent(searchFilter);
 
   const resultData = async () => {
     try {
       const response = await GetSearch(searchFilter);
       setData(response.data);
-      setIsFound(response.data.length > 0); // Memeriksa apakah ada produk yang ditemukan
+      setIsFound(response.data.length > 0); 
     } catch (error) {
       if (error.response && error.response.status === 404) {
         setIsFound(false);
@@ -44,13 +45,17 @@ const ResultSearch = () => {
   return (
     <div className=" w-full md:pt-12 text-white bg-black min-h-screen flex flex-col p-6 lg:px-24 ">
       <div className="text-sm lg:text-xl md:text-lg text-start md:ml-4 lg:ml-4 ml-2 flex flex-col ">
-        <p>
+        <div className="flex items-center gap-2">
 
-        Terkait Hasil{" "}
+        <p className="md:text-lg lg:text-lg text-sm">
+
+        Terkait Hasil Pencarian{" "}
         </p>
+        <FaChevronRight />
         <span className="text-white font-bold">
           {truncateQuery(decodedQuery)}
         </span>
+        </div>
       </div>
 
       {isFound ? (

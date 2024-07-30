@@ -1,13 +1,21 @@
 "use client";
 
+import SearchModal from "@/components/SearchModal";
 import useKategoriStore from "@/ZustandState/useKategoriStore";
+import { AnimatePresence , motion } from "framer-motion";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaSearch } from "react-icons/fa";
 
 const validCategories = ["iphone", "accessories"];
 
 const Header = ({ loading, state }) => {
+  const [isSearchOpen, setSearchOpen] = useState(false);
+
+  const onClose = () => {
+    setSearchOpen(false);
+  };
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const { kategori, setKategori } = useKategoriStore((state) => ({
@@ -45,47 +53,63 @@ const Header = ({ loading, state }) => {
   };
 
   return (
-    <header
-      className={`flex bg-black items-center justify-between border-b border-gray-300 ${
-        loading ? "py-6" : "py-5"
-      } lg:px-24 px-4  `}
-    >
-      <button
-        onClick={handleBack}
-        className="text-white hover:text-slate-200 md:ml-4"
+    <>
+      <header
+        className={`flex bg-black items-center justify-between border-b border-gray-300 ${
+          loading ? "py-6" : "py-5"
+        } lg:px-24 px-5  `}
       >
-        <FaArrowLeft className="text-xl" />
-      </button>
+        <button
+          onClick={handleBack}
+          className="text-white hover:text-slate-200 md:ml-4"
+        >
+          <FaArrowLeft className="text-xl" />
+        </button>
 
-      <div className="flex flex-grow justify-center ">
+        <div className="flex flex-grow justify-center ">
+          <button
+            disabled={loading}
+            onClick={() => handleTabChange("iphone")}
+            className={`py-2 px-4 ${
+              loading ? "hidden " : ""
+            } font-semibold lg:text-sm md:text-sm text-xs cursor-pointer ${
+              kategori === "iphone"
+                ? "text-white border-b-2 border-white"
+                : "text-slate-300 hover:text-slate-200"
+            }`}
+          >
+            Iphone
+          </button>
+          <button
+            disabled={loading}
+            onClick={() => handleTabChange("accessories")}
+            className={`py-2 px-4 ${
+              loading ? "hidden " : ""
+            }  font-semibold lg:text-sm md:text-sm text-xs cursor-pointer ${
+              kategori === "accessories"
+                ? "text-white border-b-2 border-white"
+                : "text-slate-300 hover:text-slate-200"
+            }`}
+          >
+            Aksesoris
+          </button>
+        </div>
+
         <button
-          disabled={loading}
-          onClick={() => handleTabChange("iphone")}
-          className={`py-2 px-4 ${
-            loading ? "hidden " : ""
-          } font-semibold text-sm cursor-pointer ${
-            kategori === "iphone"
-              ? "text-white border-b-2 border-white"
-              : "text-slate-300 hover:text-slate-200"
-          }`}
+          className="text-white"
+          onClick={() => setSearchOpen(!isSearchOpen)}
         >
-          Iphone
+          <FaSearch />
         </button>
-        <button
-          disabled={loading}
-          onClick={() => handleTabChange("accessories")}
-          className={`py-2 px-4 ${
-            loading ? "hidden " : ""
-          }  font-semibold text-sm cursor-pointer ${
-            kategori === "accessories"
-              ? "text-white border-b-2 border-white"
-              : "text-slate-300 hover:text-slate-200"
-          }`}
-        >
-          Aksesoris
-        </button>
-      </div>
-    </header>
+      </header>
+      <AnimatePresence>
+        {isSearchOpen && (
+          <motion.div>
+            <SearchModal isOpen={isSearchOpen} onClose={onClose} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

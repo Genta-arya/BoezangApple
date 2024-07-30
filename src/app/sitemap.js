@@ -23,6 +23,11 @@ export default async function sitemap() {
             priority: 0.8, 
         },
         {
+            url: `${baseUrl}/search/iphone`,
+            lastmod: new Date().toISOString(),
+            priority: 0.7,
+        },
+        {
             url: `${baseUrl}/katalog?kategori=accessories`,
             lastmod: new Date().toISOString(),
             priority: 0.7, 

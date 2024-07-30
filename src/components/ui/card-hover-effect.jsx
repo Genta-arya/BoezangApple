@@ -75,11 +75,12 @@ export const HoverEffect = ({ items, className }) => {
 
               <div className="flex justify-between items-center gap-4">
                 <CardTitle>{item.name}</CardTitle>
-                <div className="flex items-center mt-2 justify-end">
-                  {[...Array(rating)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400" />
-                  ))}
-                </div>
+                
+                {lowestPriceVariant && (
+                  <p className={` ${ lowestPriceVariant.quality === true ? "bg-green-500" : "bg-red-500"}text-white font-bold text-xs`}>
+                   {lowestPriceVariant.quality === true ? "New" : "Second"}
+                  </p>
+                )}
               </div>
 
               <div className="mt-2">

@@ -62,13 +62,13 @@ const CardProductMobile = ({ products, item }) => {
                 width={400}
                 height={300}
               />
-              <div className="flex flex-col mt-2">
+              <div className="flex items-center justify-between mt-2">
                 <h2 className="text-base font-semibold ">{product.name}</h2>
-                <div className="flex items-center ">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="text-yellow-400 text-xs" />
-                  ))}
-                </div>
+                {lowestPriceVariant && (
+                  <p className={` ${lowestPriceVariant.quality ? "bg-green-500" : "bg-red-500" } px-2 rounded-md font-bold text-white text-xs`}>
+                  {lowestPriceVariant.quality ? "New" : "Second"}
+                  </p>
+                )}
               </div>
               <div className="mt-2">
                 {lowestPriceVariant && lowestPriceVariant.promo ? (

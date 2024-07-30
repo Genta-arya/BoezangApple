@@ -44,17 +44,17 @@ const SearchModal = ({ isOpen, onClose }) => {
             exit={{ scale: 0.9 }}
           >
             <button
-              className="absolute top-0 right-0 m-4 text-white"
+              className="absolute -top-1 right-4 m-4 text-white"
               onClick={onClose}
             >
               &#x2715;
             </button>
-            <h2 className="lg:text-xl font-bold mb-4 text-white">Pencarian</h2>
-            <div className="relative">
+       
+            <div className="relative mt-7">
               <input
                 type="text"
-                placeholder="Cari Produk..."
-                className="w-full placeholder:text-white p-2 pr-8 pl-8 border bg-gray-600 rounded-lg text-white lg:text-sm placeholder:text-sm"
+                placeholder="Cari Produk di Boezang..."
+                className="w-full placeholder:text-white p-1 pl-2 pr-8  border bg-gray-600 rounded-sm text-white lg:text-sm placeholder:text-xs"
                 value={query}
                 maxLength={50}
                 minLength={3}
@@ -62,14 +62,9 @@ const SearchModal = ({ isOpen, onClose }) => {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyPress={handleKeyPress}
               />
-              <FaSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white" />
+              <FaSearch className=" cursor-pointer absolute right-2 top-1/2 transform -translate-y-1/2 text-white"   onClick={handleSearch}/>
             </div>
-            <button
-              onClick={handleSearch}
-              className="mt-4 w-full border text-white font-bold py-1.5 md:text-sm rounded-lg"
-            >
-              Cari
-            </button>
+           
           </motion.div>
         </motion.div>
       )}
