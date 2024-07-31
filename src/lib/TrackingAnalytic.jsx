@@ -18,16 +18,17 @@ const TrackingAnalytic = () => {
     // Fungsi untuk mencatat kunjungan
     const logVisit = async () => {
       try {
-        const ipResponse = await axios.get("https://ip-api.com/json");
-        const ip = ipResponse.data.query;
+        // Mendapatkan IP dengan menggunakan ipinfo.io
+        const ipResponse = await axios.get("https://ipinfo.io/json");
+        const ip = ipResponse.data.ip; // Ambil IP dari response
 
         const parser = new UAParser();
         const deviceInfo = parser.getResult();
 
-        // Kirim data setelah 10 detik
+        // Kirim data setelah 5 detik
         setTimeout(() => {
           socket.emit("log-visit", { ip, page: pathname, device: deviceInfo });
-        }, 5000); // 10 detik
+        }, 5000); // 5 detik
       } catch (error) {
         console.error("Error logging visit:", error);
       }
@@ -43,11 +44,11 @@ const TrackingAnalytic = () => {
 
     // Cleanup saat komponen unmount
     return () => {
-      socket.disconnect(); 
+      socket.disconnect();
     };
-  }, [pathname]); 
+  }, [pathname]);
 
-  return null; 
+  return null;
 };
 
 export default TrackingAnalytic;
