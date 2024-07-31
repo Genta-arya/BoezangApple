@@ -51,6 +51,11 @@ export default function RootLayout({ children }) {
           href="https://www.googletagmanager.com/gtm.js?id=G-BVZKXGQEEF"
           as="script"
         />
+            <link
+          rel="preload"
+          href="https://www.googletagmanager.com/gtm.js?id=GTM-ML3R2X4C"
+          as="script"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
