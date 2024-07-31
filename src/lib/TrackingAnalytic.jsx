@@ -18,7 +18,7 @@ const TrackingAnalytic = () => {
     // Fungsi untuk mencatat kunjungan
     const logVisit = async () => {
       try {
-        const ipResponse = await axios.get("http://ip-api.com/json");
+        const ipResponse = await axios.get("https://ip-api.com/json");
         const ip = ipResponse.data.query;
 
         const parser = new UAParser();
