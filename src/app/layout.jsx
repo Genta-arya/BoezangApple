@@ -4,6 +4,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import GoogleAnalyticss from "./Analytic";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import TrackingAnalytic from "@/lib/TrackingAnalytic";
 export const metadata = {
   title: "Boezang Apple Store - Ketapang Kalimantan Barat",
   description:
@@ -54,10 +55,9 @@ export default function RootLayout({ children }) {
       <GoogleAnalyticss />
       <Analytics />
       <GoogleTagManager gtmId="G-BVZKXGQEEF" />
-      <body>
-        {children}
-        <SpeedInsights />
-      </body>
+      <TrackingAnalytic />
+      <SpeedInsights />
+      <body>{children}</body>
     </html>
   );
 }
