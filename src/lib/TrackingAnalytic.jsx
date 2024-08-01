@@ -19,7 +19,7 @@ const TrackingAnalytic = () => {
     const logVisit = async () => {
       try {
         // Mendapatkan IP dengan menggunakan ipinfo.io
-        const ipResponse = await axios.get("https://ipinfo.io/json");
+        const ipResponse = await axios.get("https://ipinfo.io?token=43fd0d149673e2");
         const ip = ipResponse.data.ip; // Ambil IP dari response
 
         const parser = new UAParser();
