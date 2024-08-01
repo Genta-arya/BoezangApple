@@ -32,6 +32,11 @@ export default async function sitemap() {
             lastmod: new Date().toISOString(),
             priority: 0.7, 
         },
+        {
+            url: `${baseUrl}/layanan`,
+            lastmod: new Date().toISOString(),
+            priority: 0.7, 
+        },
         ...productUrls, 
     ];
 }

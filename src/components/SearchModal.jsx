@@ -32,7 +32,7 @@ const SearchModal = ({ isOpen, onClose }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed md:right-12 md:top-[90px] right-[7%] top-20 lg:top-20 lg:right-32 z-50"
+          className="absolute md:right-12 md:top-[90px] right-[7%] top-20 lg:top-20 lg:right-32 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
