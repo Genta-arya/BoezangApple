@@ -87,6 +87,7 @@ const DetailProduk = () => {
         }
       } catch (err) {
         setError(err);
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -107,7 +108,9 @@ const DetailProduk = () => {
   if (loading) return <SkeletonDetailProduk />;
   if (error)
     return (
-      <p className="text-center text-white py-8">Produk Tidak ditemukan</p>
+      <p className="flex justify-center items-center text-black py-8 pt-24 font-bold bg-white h-screen">
+        404 | Produk Tidak Ditemukan
+      </p>
     );
 
   const handleCapacityClick = (capacity) => {
@@ -158,10 +161,7 @@ const DetailProduk = () => {
 
     window.location.href = whatsappUrl;
   };
-  const qualityMessage =
-    selectedVariant?.quality === true
-      ? "News"
-      : "Second";
+  const qualityMessage = selectedVariant?.quality === true ? "News" : "Second";
   return (
     <div className="p-4 w-full bg-white pt-36">
       {products ? (
@@ -206,7 +206,9 @@ const DetailProduk = () => {
                 {formData.color && ` , ${colorName}`}
               </h1>
               <div className="mt-4">
-                <p className="text-gray-600 font-semibold text-end">Quality {qualityMessage}</p>
+                <p className="text-gray-600 font-semibold text-end">
+                  Quality {qualityMessage}
+                </p>
               </div>
             </div>
 

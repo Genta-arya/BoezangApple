@@ -88,10 +88,10 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
             </div>
           </MenuItem>
 
-          <Link href={""}>
+          {/* <Link href={""}>
             {" "}
             <p className="font-bold">Event & Promo</p>
-          </Link>
+          </Link> */}
           <MenuItem setActive={setActive} active={active} item="Kontak">
             <h1 className="text-center mb-2 font-bold">Temukan Kami</h1>
             <div className="text-sm grid grid-cols-2 gap-10 px-8 py-4">

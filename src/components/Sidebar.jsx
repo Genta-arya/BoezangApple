@@ -35,7 +35,7 @@ const Sidebar = ({ isOpen, onClose }) => {
 
         <div className="flex flex-col items-start mt-10 ml-5 space-y-6 text-sm">
           <a
-            href="#"
+            href="/layanan"
             className="flex items-center space-x-2 text-black dark:text-white w-full"
           >
             <div className="flex justify-between items-center w-full">
