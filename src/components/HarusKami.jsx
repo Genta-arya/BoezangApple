@@ -54,7 +54,7 @@ const HarusKami = () => {
       <div className="flex justify-center flex-col items-center">
        
         <h2 className="text-2xl font-bold ">MENGAPA HARUS</h2>
-        <strong className="text-2xl md:text-3xl font-bold md:mb-12 lg:mb-12 mb-8 text-white">
+        <strong className="text-2xl md:text-3xl font-bold md:mb-12 lg:mb-12 mb-8 ">
           DIBOEZANG APPLE STORE
         </strong>
       </div>
