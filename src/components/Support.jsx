@@ -7,7 +7,7 @@ const partners = [
   {
     name: "iBOX (Pt. Data Citra Mandiri)",
     description:
-      "iBox merupakan reseller iPhone resmi di Indonesia yang telah lama menjadi mitra Boezang Apple dalam penjualan iPhone, iPad, dan Macbook second.",
+      "iBox merupakan reseller iPhone resmi di Indonesia yang telah lama menjadi mitra Boezang Apple dalam penjualan iPhone Garansi Ibox atau pun iPhone second .",
     icon: ibox,
   },
   {

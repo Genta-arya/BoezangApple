@@ -18,26 +18,30 @@ import React from "react";
 const page = () => {
   return (
     <main className="dark:bg-black">
-      <div className="hidden lg:block md:block">
-        <NavbarDemo />
+      <div className="hidden lg:block md:block border-b   w-full">
+        <div className="">
+          <NavbarDemo />
+        </div>
       </div>
 
       <div className="lg:hidden md:hidden">
         <Navbar />
       </div>
-
-      <Header />
-
-      <Container />
       <div className="">
-        <Product />
+        <Header />
+
+        <Container />
+        <div className="">
+          <Product />
+        </div>
+
+        <HarusKami />
+        <div className="flex justify-center md:py-24 border-t py-24 lg:py-24">
+          <CardStack />
+        </div>
+        <Footer />
       </div>
 
-      <HarusKami />
-      <div className="flex justify-center md:py-24 border-t py-24 lg:py-24">
-        <CardStack />
-      </div>
-      <Footer />
       <FloatingCs />
       <PopUpModal />
     </main>

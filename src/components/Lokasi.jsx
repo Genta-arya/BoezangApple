@@ -10,7 +10,7 @@ import images2 from "@/assets/asset1.png";
 
 const Lokasi = () => {
   return (
-    <div className="dark:bg-black dark:text-white pt-12 bg-slate-100 lg:px-32">
+    <div className="dark:bg-black dark:text-white pt-12 bg-slate-100 ">
       <div className="pb-8">
         <Carousel
           showStatus={false}
@@ -26,7 +26,7 @@ const Lokasi = () => {
           emulateTouch={true}
           useKeyboardArrows={true}
         >
-          <div>
+          <div className="">
             <Image src={images2} alt="Background 1" layout="responsive" className="" />
           </div>
           <div>
