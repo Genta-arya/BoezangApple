@@ -13,7 +13,7 @@ const nextConfig = {
       "assets.aceternity.com",
       "encrypted-tbn0.gstatic.com",
       "placehold.co",
-      "boezang.apiservices.my.id,
+      "boezang.apiservices.my.id",
       "via.placeholder.com",
       "firebasestorage.googleapis.com",
       "localhost",
