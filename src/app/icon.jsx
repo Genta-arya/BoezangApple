@@ -16,7 +16,7 @@ export default function Icon() {
     (
       // ImageResponse JSX element
       <img
-        src={"https://admin.boezangapple.com/assets/icon-BfWiqzZ9.png"}
+        src={"https://mystorages.cloud/bucket/icon_boezang.png"}
         alt="Icon"
         sizes="32x32"
         width={size.width}
