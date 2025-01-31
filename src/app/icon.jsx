@@ -16,7 +16,7 @@ export default function Icon() {
     (
       // ImageResponse JSX element
       <img
-        src={"https://api.hkks.shop/uploads/image-(2)-1722119497402.png"}
+        src={"https://admin.boezangapple.com/assets/icon-BfWiqzZ9.png"}
         alt="Icon"
         sizes="32x32"
         width={size.width}
