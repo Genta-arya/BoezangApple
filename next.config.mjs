@@ -19,6 +19,7 @@ const nextConfig = {
       "localhost",
       "api.hkks.shop",
       "boezangapi.hkks.shop",
+      "mystorages.cloud",
     ],
   },
 };
