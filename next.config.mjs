@@ -19,6 +19,7 @@ const nextConfig = {
       "localhost",
       "admin.boezangapple.com",
       "api.hkks.shop",
+      "cloud.mystorages.my.id",
       "boezangapi.hkks.shop",
       "mystorages.cloud",
     ],
