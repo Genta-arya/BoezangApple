@@ -47,7 +47,7 @@ function Navbar({ className, toggleDarkMode, darkMode }) {
         <Image
           src={icon}
           alt="boezang apple ketapang"
-          className="lg:w-36 md:w-36  rounded-lg border-2 border-white"
+          className="lg:w-36 md:w-36   border-2 border-white"
         />
       </div>
 
