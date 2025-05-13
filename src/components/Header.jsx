@@ -23,7 +23,7 @@ export function Header() {
   return (
     <>
       <motion.div
-        initial={{ opacity: 0.0, y: 100 }}
+        initial={{ opacity: 0.0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.3,
@@ -91,9 +91,9 @@ export function Header() {
                   <Image
                     src={src}
                     alt={`slide-${index}`}
-                    className="w-full h-full object-cover bg-fixed"
+                    className="w-full h-full lg:object-cover object-cover bg-fixed"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+                  <div className="absolute inset-0 bg-black bg-opacity-60"></div>
                 </div>
               ))}
             </Carousel>
