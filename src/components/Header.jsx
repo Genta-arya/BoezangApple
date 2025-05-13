@@ -66,8 +66,9 @@ export function Header() {
               autoPlay={true}
               interval={10000}
               transitionTime={1000}
-              swipeable={true}
+              swipeable={false}
               dynamicHeight={true}
+              
               emulateTouch={true}
               useKeyboardArrows={true}
               renderIndicator={(onClickHandler, isSelected, index, label) => {
