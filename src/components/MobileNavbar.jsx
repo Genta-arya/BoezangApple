@@ -32,7 +32,7 @@ const Navbar = ({ className }) => {
           <Image
             src={icon}
             alt="boezang icon"
-            className="w-28 rounded-md border-2 border-white"
+            className="w-28 border-2 border-white"
           />
         </div>
         <div

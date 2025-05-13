@@ -73,8 +73,8 @@ export function Header() {
               useKeyboardArrows={true}
               renderIndicator={(onClickHandler, isSelected, index, label) => {
                 const className = isSelected
-                  ? "w-10 h-2 bg-white rounded-full mx-1"
-                  : "w-10 h-2 bg-gray-600 rounded-full mx-1";
+                  ? "w-10 lg:h-2 h-1 bg-white rounded-full mx-1"
+                  : "w-10 lg:h-2 h-1 bg-gray-600 rounded-full mx-1";
                 return (
                   <li
                     className={className + " inline-block cursor-pointer"}

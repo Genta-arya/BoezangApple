@@ -34,7 +34,7 @@ const Footer = () => {
               <div className="flex justify-center">
                 <Image
                   src={icon}
-                  className="   lg:w-96 md:w-72 w-52 rounded-md mb-8  p-1 bg-white"
+                  className="   lg:w-96 md:w-72 w-52  mb-8  p-1 bg-white"
                   alt="Boezang Apple Ketapang"
                 />
               </div>

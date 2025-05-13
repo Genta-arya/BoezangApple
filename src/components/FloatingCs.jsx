@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa"; // Import ikon WhatsApp dari react-
 
 const FloatingCs = () => {
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-40">
       {/* Floating Button */}
       <a
         href="https://wa.me/6289694451774" // Ganti dengan nomor WhatsApp Anda

@@ -29,7 +29,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           <Image
             src={icon}
             alt="boezang icon"
-            className="w-40 rounded-md border-2 border-white"
+            className="w-40  border-2 border-white"
           />
         </div>
 
