@@ -8,16 +8,15 @@ import Lokasi from "./Lokasi";
 import ServiceBnner from "./ServiceBnner";
 const Container = () => {
   return (
-    <div className="bg-gray-100 dark:bg-black dark:border-t ">
+    <div className="bg-gray-100 dark:bg-black dark:border-t -mt-10 md:-mt-0">
       <div className="lg:block md:block hidden">
         <LampDemo />
-       
+
         <Support />
         <Lokasi />
       </div>
       <div className="lg:px-24 lg:pb-12">
-        <div className="lg:hidden md:hidden block">
-       
+        <div className="lg:hidden md:hidden block mt-4 ">
           <Support />
           <Mitra />
           <Lokasi />
