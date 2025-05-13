@@ -32,7 +32,17 @@ const MainKatalog = () => {
       setLoading(true);
       try {
         const response = await GetProductByCategory(currentCategory);
-        setProducts(response.data.filter(product => product.status === true)); // Filter products by status
+
+        // Filter dan urutkan
+        const filteredSortedProducts = response.data
+          .filter((product) => product.status === true)
+          .sort((a, b) => {
+            const minA = Math.min(...a.variants.map((v) => v.price));
+            const minB = Math.min(...b.variants.map((v) => v.price));
+            return minA - minB;
+          });
+
+        setProducts(filteredSortedProducts);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -47,6 +57,7 @@ const MainKatalog = () => {
     return (
       <>
         <Header loading={loading} state={setProducts} />
+
         <div className="p-4">
           <SkeletonLoading />
         </div>
@@ -55,9 +66,11 @@ const MainKatalog = () => {
 
   return (
     <>
-      <Header loading={loading} state={setProducts}/>
-      {products.length === 0  ? (
-        <div className="text-center text-white py-24">Produk tidak ditemukan</div>
+      <Header loading={loading} state={setProducts} />
+      {products.length === 0 ? (
+        <div className="text-center text-white py-24">
+          Produk tidak ditemukan
+        </div>
       ) : (
         <div className="lg:px-24">
           <CardProductMobile products={products} item={ItemLength} />

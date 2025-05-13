@@ -14,21 +14,29 @@ const Product = () => {
   const { products, setProducts } = useProductStore();
   const [loading, setLoading] = useState(true);
 
-  const fetchProducts = async () => {
-    
-    try {
-      const data = await GetProduct();
-      // Filter products where status is true
-      const filteredProducts = data.data.filter(
+ const fetchProducts = async () => {
+  try {
+    const data = await GetProduct();
+
+    // Filter produk aktif & kategori iPhone
+    const filteredProducts = data.data
+      .filter(
         (product) => product.status === true && product.category === "iphone"
-      );
-      setProducts(filteredProducts);
-    } catch (error) {
-      console.error("Failed to fetch products:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
+      )
+      // Urutkan berdasarkan harga termurah dari variant
+      .sort((a, b) => {
+        const minA = Math.min(...a.variants.map((v) => v.price));
+        const minB = Math.min(...b.variants.map((v) => v.price));
+        return minA - minB;
+      });
+
+    setProducts(filteredProducts);
+  } catch (error) {
+    console.error("Failed to fetch products:", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
   useEffect(() => {
     fetchProducts();
