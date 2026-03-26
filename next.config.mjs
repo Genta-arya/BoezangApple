@@ -23,6 +23,7 @@ const nextConfig = {
       "clouds.mystorages.my.id",
       "boezangapi.hkks.shop",
       "mystorages.cloud",
+      "bucket.mgentaarya.my.id"
     ],
   },
 };
