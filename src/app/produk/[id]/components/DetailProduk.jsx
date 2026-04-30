@@ -303,9 +303,26 @@ const price = displayedDiscountPrice;
 </div>
               
             ) : (
-              <h1 className="lg:text-3xl md:text-xl text-xl  text-gray-600 font-bold  mb-4 text-center">
-                {formatIDR(selectedVariant?.price || 0)}
-              </h1>
+             <div className="text-red-500 lg:text-2xl md:text-xl text-xl font-semibold mb-8">
+  
+  {/* Harga Promo */}
+  <p className="text-black font-bold text-center">
+    {formatIDR(displayedDiscountPrice)}
+  </p>
+
+  <div className="flex items-center gap-2 justify-center">
+    
+    {/* Harga Coret */}
+    <p className="line-through text-gray-600 text-sm">
+      {formatIDR(displayedOriginalPrice)}
+    </p>
+
+    {/* Label */}
+    <p className="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+      PROMO
+    </p>
+  </div>
+</div>
             )}
             <div className="flex items-center justify-center mb-4 gap-6">
               <button disabled className="flex items-center justify-center ">
