@@ -139,10 +139,7 @@ const DetailProduk = () => {
     if (!formData.color) {
       return toast.info("Silahkan Pilih Warna");
     }
-    const price = selectedVariant?.promo
-      ? selectedVariant.price -
-        (selectedVariant.price * selectedVariant.promo.discount) / 100
-      : selectedVariant?.price || 0;
+  
 
     const message = `Hallo Admin Boezang Apple, \n saya ${
       formData.name
@@ -162,6 +159,12 @@ const DetailProduk = () => {
     window.location.href = whatsappUrl;
   };
   const qualityMessage = selectedVariant?.quality === true ? "News" : "Second";
+  const fakeMarkup = 500000;
+
+const realPrice = selectedVariant?.price || 0;
+const displayedOriginalPrice = realPrice + fakeMarkup;
+const displayedDiscountPrice = displayedOriginalPrice - fakeMarkup;
+const price = displayedDiscountPrice;
   return (
     <div className="p-4 w-full bg-white pt-36">
       {products ? (
@@ -278,23 +281,26 @@ const DetailProduk = () => {
           <div className="mb-6 border py-2  px-8 lg:max-w-lg lg:w-[25%] rounded-lg pt-8 h-fit pb-8">
             {/* Price Display */}
             {selectedVariant?.promo ? (
-              <div className="text-red-500 lg:text-2xl md:text-xl text-xl font-semibold mb-8">
-                {/* Original Price */}
-                <p className="text-black font-bold text-center">
-                  {formatIDR(
-                    selectedVariant.price -
-                      (selectedVariant.price * selectedVariant.promo.discount) /
-                        100
-                  )}
-                </p>
-                <div className="flex items-center gap-2 justify-center">
-                  <p className="line-through text-gray-600 dark:text-gray-300 text-center text-sm font-sans">
-                    {formatIDR(selectedVariant.price)}
-                  </p>
-                  <p className="text-red-500 font-light text-sm">
-                    [{selectedVariant.promo.discount}%]
-                  </p>
-                </div>
+          <div className="text-red-500 lg:text-2xl md:text-xl text-xl font-semibold mb-8">
+  
+  {/* Harga Promo */}
+  <p className="text-black font-bold text-center">
+    {formatIDR(displayedDiscountPrice)}
+  </p>
+
+  <div className="flex items-center gap-2 justify-center">
+    
+    {/* Harga Coret */}
+    <p className="line-through text-gray-600 text-center text-sm font-sans">
+      {formatIDR(displayedOriginalPrice)}
+    </p>
+
+    {/* Label */}
+    <p className="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">
+      PROMO
+    </p>
+  </div>
+</div>
                 {/* Promo Expiry Date */}
                 <p className="text-gray-600 dark:text-gray-300 text-xs text-center mt-2">
                   Berlaku Hingga: {formatDate(selectedVariant.promo.expiryDate)}
