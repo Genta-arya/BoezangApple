@@ -301,11 +301,7 @@ const price = displayedDiscountPrice;
     </p>
   </div>
 </div>
-                {/* Promo Expiry Date */}
-                <p className="text-gray-600 dark:text-gray-300 text-xs text-center mt-2">
-                  Berlaku Hingga: {formatDate(selectedVariant.promo.expiryDate)}
-                </p>
-              </div>
+              
             ) : (
               <h1 className="lg:text-3xl md:text-xl text-xl  text-gray-600 font-bold  mb-4 text-center">
                 {formatIDR(selectedVariant?.price || 0)}
